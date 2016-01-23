@@ -207,7 +207,7 @@ HDL を多少でも理解できると、その分対応できる仕事が広が�
 </div>
 </div>
 <div class="section" id="std-logic-vector">
-<h4>4.2.2 std_logic?vector<a class="headerlink" href="#std-logic-vector" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>4.2.2 std_logic_vector<a class="headerlink" href="#std-logic-vector" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>std_logic を束ねたもので、任意のビット数を扱うことができます。</p>
 <p>各ビットに代入できる値は std_logic と同じです。</p>
 <p>束ねるビット数は宣言時に決めておきます。たとえば１０進数で０～１００までを扱うには 7bit 必要ですので、７本の std_logic を束ねるため、以下のような形式になります。</p>
@@ -332,7 +332,7 @@ HDL を多少でも理解できると、その分対応できる仕事が広が�
 <h3>5.2 論理演算<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id4">
 <h4>5.2.1 演習<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>プロジェクト名vhdl01</p>
+<p>プロジェクト名 vhdl01</p>
 <p>スイッチ入力に対して論理演算を行い、結果を LED に出力します。</p>
 <div class="highlight-vhdl"><div class="highlight"><pre><span class="k">library</span> <span class="nn">ieee</span><span class="p">;</span>
 <span class="k">use</span> <span class="nn">ieee.std_logic_1164.all</span><span class="p">;</span>
@@ -340,15 +340,15 @@ HDL を多少でも理解できると、その分対応できる仕事が広が�
 <span class="k">use</span> <span class="nn">ieee.std_logic_unsigned.all</span><span class="p">;</span>
 
 <span class="k">entity</span> <span class="nc">vhdl01</span> <span class="k">is</span>
-<span class="k">port</span> <span class="p">(</span>
-  <span class="n">sw1</span>  <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
-  <span class="n">sw2</span>  <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
-  <span class="n">led1</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
-  <span class="n">led2</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
-  <span class="n">led3</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
-  <span class="n">led4</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
-  <span class="n">led5</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
-<span class="p">);</span>
+  <span class="k">port</span> <span class="p">(</span>
+    <span class="n">sw1</span>  <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw2</span>  <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led1</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led2</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led3</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led4</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led5</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
+  <span class="p">);</span>
 <span class="k">end</span> <span class="nc">vhdl01</span><span class="p">;</span>
 
 <span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">vhdl01</span> <span class="k">is</span>
@@ -361,8 +361,8 @@ HDL を多少でも理解できると、その分対応できる仕事が広が�
 <span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>このコードで出力される回路は図のようなものになります。
-スイッチは基板奥の方（７セグLED 側）に倒すとH 、手前でL のレベルになります。
+<p>このコードで出力される回路は図のようなものになります。</p>
+<p>スイッチは基板奥の方（７セグLED 側）に倒すとH 、手前でL のレベルになります。
 LED に対してはデバイスからH を与えると消灯、L を与えると点灯します。
 たとえばled1 はスイッチ１番を奥に倒すと消灯、手前に倒すと点灯します。led5 は逆の点灯の仕方になります。</p>
 </div>
@@ -371,176 +371,188 @@ LED に対してはデバイスからH を与えると消灯、L を与えると
 <h3>5.3 数値演算<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id6">
 <h4>5.3.1 演習<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>プロジェクト名vhdl02</p>
+<p>プロジェクト名 vhdl02</p>
 <p>スイッチ入力に対して数値演算を行い、LED に表示します。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl02 i s
-por t (
-sw1 : in s t d l o g i c ;
-sw2 : in s t d l o g i c ;
-sw3 : in s t d l o g i c ;
-sw4 : in s t d l o g i c ;
-sw5 : in s t d l o g i c ;
-sw6 : in s t d l o g i c ;
-sw7 : in s t d l o g i c ;
-sw8 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c ;
-l ed2 : out s t d l o g i c ;
-l ed3 : out s t d l o g i c ;
-l ed4 : out s t d l o g i c ;
-l ed5 : out s t d l o g i c ;
-l ed6 : out s t d l o g i c ;
-l ed7 : out s t d l o g i c ;
-l ed8 : out s t d l o g i c ;
-s l ed1 a : out s t d l o g i c ;
-s l ed1b : out s t d l o g i c ;
-s l e d 1 c : out s t d l o g i c ;
-s l ed1d : out s t d l o g i c ;
-s l e d 1 e : out s t d l o g i c ;
-s l e d 1 f : out s t d l o g i c ;
-s l ed1 g : out s t d l o g i c ;
-s l ed2 a : out s t d l o g i c ;
-s l ed2b : out s t d l o g i c ;
-s l e d 2 c : out s t d l o g i c ;
-s l ed2d : out s t d l o g i c ;
-s l e d 2 e : out s t d l o g i c ;
-s l e d 2 f : out s t d l o g i c ;
-s l ed2 g : out s t d l o g i c
-) ;
-end vhdl02 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl02 i s
-s i g n a l s sw1 : s t d l o g i c ;
-s i g n a l s sw2 : s t d l o g i c ;
-s i g n a l s sw3 : s t d l o g i c ;
-s i g n a l s sw4 : s t d l o g i c ;
-s i g n a l s sw5 : s t d l o g i c ;
-s i g n a l s sw6 : s t d l o g i c ;
-s i g n a l s sw7 : s t d l o g i c ;
-s i g n a l s sw8 : s t d l o g i c ;
-s i g n a l sw : s t d l o g i c v e c t o r (8 downto 1) ;
-s i g n a l add : s t d l o g i c v e c t o r (4 downto 1) ;
-s i g n a l sub : s t d l o g i c v e c t o r (4 downto 1) ;
-s i g n a l l ed71 : s t d l o g i c v e c t o r (6 downto 0) ;
-s i g n a l l ed72 : s t d l o g i c v e c t o r (6 downto 0) ;
-begin  f i x p o l a r i t y</p>
-<blockquote>
-<div>r e v i s i o n 2</div></blockquote>
-<p>s sw1 &lt;= sw1 ;
-s sw2 &lt;= sw2 ;
-s sw3 &lt;= sw3 ;
-s sw4 &lt;= sw4 ;
-s sw5 &lt;= sw5 ;
-s sw6 &lt;= sw6 ;
-s sw7 &lt;= sw7 ;
-s sw8 &lt;= sw8 ;</p>
-<blockquote>
-<div>r e v i s i o n 1 ( no r e v i s i o n )</div></blockquote>
-<p>s sw1 &lt;= not sw1 ;
-s sw2 &lt;= not sw2 ;
-s sw3 &lt;= not sw3 ;
-s sw4 &lt;= not sw4 ;
-s sw5 &lt;= not sw5 ;
-s sw6 &lt;= not sw6 ;
-s sw7 &lt;= not sw7 ;
-s sw8 &lt;= not sw8 ;</p>
-<blockquote>
-<div>l e f t 4 swi t che s &amp; r i g h t 4 swi t che s
-l e f t swi t ch i s MSB</div></blockquote>
-<p>sw &lt;= s sw1 &amp; s sw2 &amp; s sw3 &amp; s sw4 &amp; s sw5 &amp; s sw6 &amp; s sw7 &amp; s sw8 ;
-add (4 downto 1) &lt;= sw(8 downto 5) + sw(4 downto 1) ;
-sub (4 downto 1) &lt;= sw(8 downto 5)   sw(4 downto 1) ;</p>
-<blockquote>
-<div>make 7 s eg LED b i t map</div></blockquote>
-<p>l ed71 &lt;= &#8221; 0010000 &#8221; when ( add = &#8221; 1001 &#8221; )
-e l s e &#8221; 0000000 &#8221; when ( add = &#8221; 1000 &#8221; )
-e l s e &#8221; 1111000 &#8221; when ( add = &#8221; 0111 &#8221; )
-e l s e &#8221; 0000010 &#8221; when ( add = &#8221; 0110 &#8221; )
-e l s e &#8221; 0010010 &#8221; when ( add = &#8221; 0101 &#8221; )
-e l s e &#8221; 0011001 &#8221; when ( add = &#8221; 0100 &#8221; )
-e l s e &#8221; 0110000 &#8221; when ( add = &#8221; 0011 &#8221; )
-e l s e &#8221; 0100100 &#8221; when ( add = &#8221; 0010 &#8221; )
-e l s e &#8221; 1111001 &#8221; when ( add = &#8221; 0001 &#8221; )
-e l s e &#8221; 1000000 &#8221; when ( add = &#8221; 0000 &#8221; )
-e l s e &#8221; 0000110 &#8221; ;
-l ed72 &lt;= &#8221; 0010000 &#8221; when ( sub = &#8221; 1001 &#8221; )
-e l s e &#8221; 0000000 &#8221; when ( sub = &#8221; 1000 &#8221; )
-e l s e &#8221; 1111000 &#8221; when ( sub = &#8221; 0111 &#8221; )
-e l s e &#8221; 0000010 &#8221; when ( sub = &#8221; 0110 &#8221; )
-e l s e &#8221; 0010010 &#8221; when ( sub = &#8221; 0101 &#8221; )
-e l s e &#8221; 0011001 &#8221; when ( sub = &#8221; 0100 &#8221; )
-e l s e &#8221; 0110000 &#8221; when ( sub = &#8221; 0011 &#8221; )
-e l s e &#8221; 0100100 &#8221; when ( sub = &#8221; 0010 &#8221; )
-e l s e &#8221; 1111001 &#8221; when ( sub = &#8221; 0001 &#8221; )
-e l s e &#8221; 1000000 &#8221; when ( sub = &#8221; 0000 &#8221; )
-e l s e &#8221; 0000110 &#8221; ;</p>
-<blockquote>
-<div>map to pin</div></blockquote>
-<p>s l ed1 a &lt;= l ed71 ( 0 ) ;
-s l ed1b &lt;= l ed71 ( 1 ) ;
-s l e d 1 c &lt;= l ed71 ( 2 ) ;
-s l ed1d &lt;= l ed71 ( 3 ) ;
-s l e d 1 e &lt;= l ed71 ( 4 ) ;
-s l e d 1 f &lt;= l ed71 ( 5 ) ;
-s l ed1 g &lt;= l ed71 ( 6 ) ;
-s l ed2 a &lt;= l ed72 ( 0 ) ;
-s l ed2b &lt;= l ed72 ( 1 ) ;
-s l e d 2 c &lt;= l ed72 ( 2 ) ;
-s l ed2d &lt;= l ed72 ( 3 ) ;
-s l e d 2 e &lt;= l ed72 ( 4 ) ;
-s l e d 2 f &lt;= l ed72 ( 5 ) ;
-s l ed2 g &lt;= l ed72 ( 6 ) ;</p>
-<blockquote>
-<div>debug</div></blockquote>
-<p>l ed1 &lt;= not add ( 4 ) ;
-l ed2 &lt;= not add ( 3 ) ;
-l ed3 &lt;= not add ( 2 ) ;
-l ed4 &lt;= not add ( 1 ) ;
-l ed5 &lt;= not sub ( 4 ) ;
-l ed6 &lt;= not sub ( 3 ) ;
-l ed7 &lt;= not sub ( 2 ) ;
-l ed8 &lt;= not sub ( 1 ) ;
-end beha v i o r a l ;</p>
-<p>スイッチの上位４ビットと下位４ビットの演算を行います。LED の上位に加算の結果、下位に減算の結果が２進数で表示されます。
-たとえばスイッチを８から１まで、10100001 （1=ON, 0=OFF）とした場合、結果は10011011 、そのままならばLED の点灯パターンは01100100 となります。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">library</span> <span class="nn">ieee</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_1164.all</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_arith.all</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_unsigned.all</span><span class="p">;</span>
+
+<span class="k">entity</span> <span class="nc">vhdl02</span> <span class="k">is</span>
+  <span class="k">port</span> <span class="p">(</span>
+    <span class="n">sw1</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw2</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw3</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw4</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw5</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw6</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw7</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sw8</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+
+    <span class="n">led1</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led2</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led3</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led4</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led5</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led6</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led7</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">led8</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+
+    <span class="n">sled1a</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled1b</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled1c</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled1d</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled1e</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled1f</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled1g</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2a</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2b</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2c</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2d</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2e</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2f</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">sled2g</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
+  <span class="p">);</span>
+<span class="k">end</span> <span class="nc">vhdl02</span><span class="p">;</span>
+
+<span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">vhdl02</span> <span class="k">is</span>
+  <span class="k">signal</span> <span class="n">s_sw1</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw2</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw3</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw4</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw5</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw6</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw7</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="k">signal</span> <span class="n">s_sw8</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+
+  <span class="k">signal</span> <span class="n">sw</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">8</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">signal</span> <span class="n">add</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">4</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">signal</span> <span class="n">sub</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">4</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">signal</span> <span class="n">led71</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">6</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">signal</span> <span class="n">led72</span> <span class="o">:</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">6</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">begin</span>
+  <span class="c1">-- fixed polarity</span>
+  <span class="c1">-- revision 2</span>
+  <span class="c1">-- s_sw1 &lt;= sw1;</span>
+  <span class="c1">-- s_sw2 &lt;= sw2;</span>
+  <span class="c1">-- s_sw3 &lt;= sw3;</span>
+  <span class="c1">-- s_sw4 &lt;= sw4;</span>
+  <span class="c1">-- s_sw5 &lt;= sw5;</span>
+  <span class="c1">-- s_sw6 &lt;= sw6;</span>
+  <span class="c1">-- s_sw7 &lt;= sw7;</span>
+  <span class="c1">-- s_sw8 &lt;= sw8;</span>
+  <span class="c1">-- revision 1 (no revision)</span>
+  <span class="n">s_sw1</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw1</span><span class="p">;</span>
+  <span class="n">s_sw2</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw2</span><span class="p">;</span>
+  <span class="n">s_sw3</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw3</span><span class="p">;</span>
+  <span class="n">s_sw4</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw4</span><span class="p">;</span>
+  <span class="n">s_sw5</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw5</span><span class="p">;</span>
+  <span class="n">s_sw6</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw6</span><span class="p">;</span>
+  <span class="n">s_sw7</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw7</span><span class="p">;</span>
+  <span class="n">s_sw8</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sw8</span><span class="p">;</span>
+
+  <span class="c1">-- left 4 switches &amp; right 4 switches</span>
+  <span class="c1">-- left switch is MSB</span>
+  <span class="n">sw</span> <span class="o">&lt;=</span> <span class="n">s_sw1</span> <span class="o">&amp;</span> <span class="n">s_sw2</span> <span class="o">&amp;</span> <span class="n">s_sw3</span> <span class="o">&amp;</span> <span class="n">s_sw4</span> <span class="o">&amp;</span> <span class="n">s_sw5</span> <span class="o">&amp;</span> <span class="n">s_sw6</span> <span class="o">&amp;</span> <span class="n">s_sw7</span> <span class="o">&amp;</span> <span class="n">s_sw8</span><span class="p">;</span>
+
+  <span class="n">add</span><span class="p">(</span><span class="mi">4</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sw</span><span class="p">(</span><span class="mi">8</span> <span class="k">downto</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">sw</span><span class="p">(</span><span class="mi">4</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">sub</span><span class="p">(</span><span class="mi">4</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">sw</span><span class="p">(</span><span class="mi">8</span> <span class="k">downto</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">sw</span><span class="p">(</span><span class="mi">4</span> <span class="k">downto</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">-- make 7 seg LED bit map</span>
+  <span class="n">led71</span> <span class="o">&lt;=</span> <span class="s">&quot;0010000&quot; when (add = &quot;1001&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0000000&quot; when (add = &quot;1000&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;1111000&quot; when (add = &quot;0111&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0000010&quot; when (add = &quot;0110&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0010010&quot; when (add = &quot;0101&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0011001&quot; when (add = &quot;0100&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0110000&quot; when (add = &quot;0011&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0100100&quot; when (add = &quot;0010&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;1111001&quot; when (add = &quot;0001&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;1000000&quot; when (add = &quot;0000&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0000110&quot;</span> <span class="p">;</span>
+  <span class="n">led72</span> <span class="o">&lt;=</span> <span class="s">&quot;0010000&quot; when (sub = &quot;1001&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0000000&quot; when (sub = &quot;1000&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;1111000&quot; when (sub = &quot;0111&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0000010&quot; when (sub = &quot;0110&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0010010&quot; when (sub = &quot;0101&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0011001&quot; when (sub = &quot;0100&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0110000&quot; when (sub = &quot;0011&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0100100&quot; when (sub = &quot;0010&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;1111001&quot; when (sub = &quot;0001&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;1000000&quot; when (sub = &quot;0000&quot;</span><span class="p">)</span>
+      <span class="k">else</span> <span class="s">&quot;0000110&quot;</span> <span class="p">;</span>
+
+  <span class="c1">-- map to pin</span>
+  <span class="n">sled1a</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="n">sled1b</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">sled1c</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">sled1d</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">sled1e</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="n">sled1f</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="n">sled1g</span> <span class="o">&lt;=</span> <span class="n">led71</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+  <span class="n">sled2a</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="n">sled2b</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">sled2c</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">sled2d</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">sled2e</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="n">sled2f</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="n">sled2g</span> <span class="o">&lt;=</span> <span class="n">led72</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+  <span class="c1">-- debug</span>
+  <span class="n">led1</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="n">led2</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">led3</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">led4</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">led5</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sub</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="n">led6</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">led7</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">led8</span> <span class="o">&lt;=</span> <span class="k">not</span> <span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>スイッチの上位４ビットと下位４ビットの演算を行います。LED の上位に加算の結果、下位に減算の結果が２進数で表示されます。</p>
+<p>たとえばスイッチを８から１まで、10100001 （1=ON, 0=OFF）とした場合、結果は10011011 、そのままならばLED の点灯パターンは01100100 となります。</p>
 </div>
 </div>
 <div class="section" id="when-else">
 <h3>5.4 条件分岐 when ～ else ～<a class="headerlink" href="#when-else" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id7">
 <h4>5.4.1 演習<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>プロジェクト名vhdl03</p>
+<p>プロジェクト名 vhdl03</p>
 <p>条件分岐の書き方の一つ、when ～ else ～ の例です。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl03 i s
-por t (
-sw1 : in s t d l o g i c ;
-sw2 : in s t d l o g i c ;
-sw8 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c
-) ;
-end vhdl03 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl03 i s
-begin
-l ed1 &lt;= sw2 when ( sw8 = &#8216; 1 &#8216; )
-e l s e sw1 ;
-end beha v i o r a l ;</p>
-<p>sw8 をH レベルにしておくと、LED1 はsw2 の操作に従って点灯します。
-sw8 がL レベルの場合は、LED1 はsw1 の操作に従って点灯します。
-このコードから生成される回路のイメージは次の図の通りです。
-この記述ではいくつでも分岐させることができます。
-ans &lt;= x1 when ( y1 = &#8216; 1 &#8216; )
-e l s e x2 when ( y2 = &#8216; 1 &#8216; )
-e l s e x3 when ( y3 = &#8216; 1 &#8216; )
-e l s e x4 when ( y4 = &#8216; 1 &#8216; )
-e l s e x5 ;</p>
-<p>ただし、判定は記述した順番に行われます。この例でたとえばy1 ～ y4 全てが1 だっ
-た場合、y1 の条件が採用されます（プライオリティエンコーダ＝選択肢に優先順位のあるセレクタ）。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">l</span> <span class="n">i</span> <span class="n">b</span> <span class="n">r</span> <span class="n">a</span> <span class="n">r</span> <span class="n">y</span> <span class="n">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">.</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">6</span> <span class="mi">4</span> <span class="p">.</span> <span class="n">a</span> <span class="n">l</span> <span class="n">l</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">.</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="n">a</span> <span class="n">r</span> <span class="n">i</span> <span class="n">t</span> <span class="n">h</span> <span class="p">.</span> <span class="n">a</span> <span class="n">l</span> <span class="n">l</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">.</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="n">u</span> <span class="n">n</span> <span class="n">s</span> <span class="n">i</span> <span class="n">g</span> <span class="n">n</span> <span class="n">e</span> <span class="n">d</span> <span class="p">.</span> <span class="n">a</span> <span class="n">l</span> <span class="n">l</span> <span class="p">;</span>
+<span class="n">e</span> <span class="n">n</span> <span class="n">t</span> <span class="n">i</span> <span class="n">t</span> <span class="n">y</span> <span class="n">vhdl03</span> <span class="n">i</span> <span class="n">s</span>
+<span class="n">por</span> <span class="n">t</span> <span class="p">(</span>
+<span class="n">sw1</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">sw2</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">sw8</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">l</span> <span class="n">ed1</span> <span class="o">:</span> <span class="k">out</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span>
+<span class="p">)</span> <span class="p">;</span>
+<span class="k">end</span> <span class="nc">vhdl03</span> <span class="p">;</span>
+<span class="n">a</span> <span class="n">r</span> <span class="n">c</span> <span class="n">h</span> <span class="n">i</span> <span class="n">t</span> <span class="n">e</span> <span class="n">c</span> <span class="n">t</span> <span class="n">u</span> <span class="n">r</span> <span class="n">e</span> <span class="n">beha</span> <span class="n">v</span> <span class="n">i</span> <span class="n">o</span> <span class="n">r</span> <span class="n">a</span> <span class="n">l</span> <span class="n">o</span> <span class="n">f</span> <span class="n">vhdl03</span> <span class="n">i</span> <span class="n">s</span>
+<span class="k">begin</span>
+<span class="n">l</span> <span class="n">ed1</span> <span class="o">&lt;=</span> <span class="n">sw2</span> <span class="k">when</span> <span class="p">(</span> <span class="n">sw8</span> <span class="o">=</span> <span class="p">&#39;</span> <span class="mi">1</span> <span class="p">&#39;</span> <span class="p">)</span>
+<span class="n">e</span> <span class="n">l</span> <span class="n">s</span> <span class="n">e</span> <span class="n">sw1</span> <span class="p">;</span>
+<span class="k">end</span> <span class="nc">beha</span> <span class="nc">v</span> <span class="nc">i</span> <span class="nc">o</span> <span class="nc">r</span> <span class="nc">a</span> <span class="nc">l</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>sw8 をH レベルにしておくと、LED1 はsw2 の操作に従って点灯します。</p>
+<p>sw8 がL レベルの場合は、LED1 はsw1 の操作に従って点灯します。</p>
+<p>このコードから生成される回路のイメージは次の図の通りです。</p>
+<p>この記述ではいくつでも分岐させることができます。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">ans</span> <span class="o">&lt;=</span> <span class="n">x1</span> <span class="k">when</span> <span class="p">(</span><span class="n">y1</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="n">x2</span> <span class="k">when</span> <span class="p">(</span><span class="n">y2</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="n">x3</span> <span class="k">when</span> <span class="p">(</span><span class="n">y3</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="n">x4</span> <span class="k">when</span> <span class="p">(</span><span class="n">y4</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="n">x5</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>ただし、判定は記述した順番に行われます。この例でたとえばy1 ～ y4 全てが1 だった場合、y1 の条件が採用されます（プライオリティエンコーダ＝選択肢に優先順位のあるセレクタ）。</p>
 </div>
 </div>
 <div class="section" id="with-select-when">
@@ -549,350 +561,434 @@ e l s e x5 ;</p>
 <h4>5.5.1 演習<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>プロジェクト名vhdl04</p>
 <p>条件分岐の書き方の一つ、with ～ select ～ when ～ の例です。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl04 i s
-por t (
-sw1 : in s t d l o g i c ;
-sw2 : in s t d l o g i c ;
-sw3 : in s t d l o g i c ;
-sw7 : in s t d l o g i c ;
-sw8 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c
-) ;
-end vhdl04 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl04 i s
-s i g n a l sw : s t d l o g i c v e c t o r (1 downto 0) ;
-begin
-sw &lt;= sw8 &amp; sw7 ;
-with sw s e l e c t l ed1 &lt;= sw3 when &#8220;11&#8221; ,
-sw2 when &#8220;10&#8221; ,
-sw1 when &#8220;01&#8221; ,
-&#8216;0 &#8216; when o the r s ;
-end beha v i o r a l ;</p>
-<p>sw7 とsw8 の設定により、LED の点滅を制御できるスイッチを切り替えられる回路です。
-このコードから生成される回路のイメージは次の通りです。
-中央のブロックはセレクタで、上から入力される値がブロック中の値と一致すると、そ
-の箇所の信号が出力されます。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">l</span> <span class="n">i</span> <span class="n">b</span> <span class="n">r</span> <span class="n">a</span> <span class="n">r</span> <span class="n">y</span> <span class="n">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">.</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">6</span> <span class="mi">4</span> <span class="p">.</span> <span class="n">a</span> <span class="n">l</span> <span class="n">l</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">.</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="n">a</span> <span class="n">r</span> <span class="n">i</span> <span class="n">t</span> <span class="n">h</span> <span class="p">.</span> <span class="n">a</span> <span class="n">l</span> <span class="n">l</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">i</span> <span class="n">e</span> <span class="n">e</span> <span class="n">e</span> <span class="p">.</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="n">u</span> <span class="n">n</span> <span class="n">s</span> <span class="n">i</span> <span class="n">g</span> <span class="n">n</span> <span class="n">e</span> <span class="n">d</span> <span class="p">.</span> <span class="n">a</span> <span class="n">l</span> <span class="n">l</span> <span class="p">;</span>
+<span class="n">e</span> <span class="n">n</span> <span class="n">t</span> <span class="n">i</span> <span class="n">t</span> <span class="n">y</span> <span class="n">vhdl04</span> <span class="n">i</span> <span class="n">s</span>
+<span class="n">por</span> <span class="n">t</span> <span class="p">(</span>
+<span class="n">sw1</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">sw2</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">sw3</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">sw7</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">sw8</span> <span class="o">:</span> <span class="k">in</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="p">;</span>
+<span class="n">l</span> <span class="n">ed1</span> <span class="o">:</span> <span class="k">out</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span>
+<span class="p">)</span> <span class="p">;</span>
+<span class="k">end</span> <span class="nc">vhdl04</span> <span class="p">;</span>
+<span class="n">a</span> <span class="n">r</span> <span class="n">c</span> <span class="n">h</span> <span class="n">i</span> <span class="n">t</span> <span class="n">e</span> <span class="n">c</span> <span class="n">t</span> <span class="n">u</span> <span class="n">r</span> <span class="n">e</span> <span class="n">beha</span> <span class="n">v</span> <span class="n">i</span> <span class="n">o</span> <span class="n">r</span> <span class="n">a</span> <span class="n">l</span> <span class="n">o</span> <span class="n">f</span> <span class="n">vhdl04</span> <span class="n">i</span> <span class="n">s</span>
+<span class="n">s</span> <span class="n">i</span> <span class="n">g</span> <span class="n">n</span> <span class="n">a</span> <span class="n">l</span> <span class="n">sw</span> <span class="o">:</span> <span class="n">s</span> <span class="n">t</span> <span class="n">d</span> <span class="n">l</span> <span class="n">o</span> <span class="n">g</span> <span class="n">i</span> <span class="n">c</span> <span class="n">v</span> <span class="n">e</span> <span class="n">c</span> <span class="n">t</span> <span class="n">o</span> <span class="n">r</span> <span class="p">(</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
+<span class="k">begin</span>
+<span class="n">sw</span> <span class="o">&lt;=</span> <span class="n">sw8</span> <span class="o">&amp;</span> <span class="n">sw7</span> <span class="p">;</span>
+<span class="k">with</span> <span class="n">sw</span> <span class="n">s</span> <span class="n">e</span> <span class="n">l</span> <span class="n">e</span> <span class="n">c</span> <span class="n">t</span> <span class="n">l</span> <span class="n">ed1</span> <span class="o">&lt;=</span> <span class="n">sw3</span> <span class="k">when</span> <span class="s">&quot;11&quot;</span> <span class="p">,</span>
+<span class="n">sw2</span> <span class="k">when</span> <span class="s">&quot;10&quot;</span> <span class="p">,</span>
+<span class="n">sw1</span> <span class="k">when</span> <span class="s">&quot;01&quot;</span> <span class="p">,</span>
+<span class="p">&#39;</span><span class="mi">0</span> <span class="p">&#39;</span> <span class="k">when</span> <span class="n">o</span> <span class="n">the</span> <span class="n">r</span> <span class="n">s</span> <span class="p">;</span>
+<span class="k">end</span> <span class="nc">beha</span> <span class="nc">v</span> <span class="nc">i</span> <span class="nc">o</span> <span class="nc">r</span> <span class="nc">a</span> <span class="nc">l</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>sw7 とsw8 の設定により、LED の点滅を制御できるスイッチを切り替えられる回路です。</p>
+<p>このコードから生成される回路のイメージは次の通りです。</p>
+<p>中央のブロックはセレクタで、上から入力される値がブロック中の値と一致すると、その箇所の信号が出力されます。</p>
 </div>
 </div>
 <div class="section" id="process">
 <h3>5.6 process 文<a class="headerlink" href="#process" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>AND、OR、NOT などの組み合わせ回路や単純な条件分岐であればこれまでの内容で対応できますが、フリップフロップなどを組み合わせた順序回路を記述するには、process文を使用します。</p>
 <p>ヒント</p>
-<p>フリップフロップ専用の記述ではありませんが、フリップフロップを使用する箇所のみ
-process 文を使うようにしていると、慣れていないうちはトラブルを避けやすくなります。
-基本的な構成は以下の通りです。
-LABEL : pr o c e s s (SENSITIVITY LIST)
+<p>フリップフロップ専用の記述ではありませんが、フリップフロップを使用する箇所のみ process 文を使うようにしていると、慣れていないうちはトラブルを避けやすくなります。</p>
+<p>基本的な構成は以下の通りです。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>LABEL: process (SENSITIVITY-LIST)
 begin
-~ EXPRESSION ~
-end pr o c e s s ;</p>
-<p>ラベル(LABEL) を付加するかどうかは任意ですが、識別のために固有の名前をつけておくのがよいでしょう。
-センシティビティリスト(SENSITIVITY-LIST) は、このprocess 文を動作させるトリガになる信号のリストを記述します。
-信号名はカンマで区切ります。
-式(EXPRESSION) の部分には実際の動作を記述します。ただし条件分岐は、これまでのwhen ～ else ～ やwith ～ select ～ when ～ は使用できません。後ほどでてくるif 文やcase 文を使用します（逆にif 　文やcase 文はprocess 文の外では使用できません）。
-表5.1 組み合わせ
-process 文のwhen ～ else ～ with ～ select ～ when ～ if ～ elsif ～ endif case ～ end case
-外○ ○ × ×
-中× × ○ ○</p>
+  ～ EXPRESSION ～
+end process;
+</pre></div>
+</div>
+<p>ラベル(LABEL) を付加するかどうかは任意ですが、識別のために固有の名前をつけておくのがよいでしょう。</p>
+<p>センシティビティリスト(SENSITIVITY-LIST) は、このprocess 文を動作させるトリガになる信号のリストを記述します。</p>
+<p>信号名はカンマで区切ります。</p>
+<p>式(EXPRESSION) の部分には実際の動作を記述します。ただし条件分岐は、これまでのwhen ～ else ～ やwith ～ select ～ when ～ は使用できません。後ほどでてくるif 文やcase 文を使用します（逆にif 　文やcase 文はprocess 文の外では使用できません）。</p>
+<table border="1" class="docutils" id="id31">
+<caption><span class="caption-text">組み合わせ</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">process 文の</th>
+<th class="head">when ～ else ～</th>
+<th class="head">with ～ select ～ when ～</th>
+<th class="head">if ～ elsif ～ endif</th>
+<th class="head">case ～ end case</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>外</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr class="row-odd"><td>中</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="if">
 <h3>5.7 フリップフロップの基本と if 文<a class="headerlink" href="#if" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>フリップフロップは主にD 型、SR 型、JK 型、T 型があります。これらをVHDL で記述するときは一般にprocess 文を使用します。
-フリップフロップのリセットが非同期式の場合、D フリップフロップは以下のように記述します。</p>
-<p>D FF: pr o c e s s ( r e s e t , c l o c k )
-begin
-i f ( r e s e t = &#8216; 1 &#8216; ) then
-q &lt;= &#8216; 0 &#8216; ;
-e l s i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-q &lt;= d ;
-end i f ;
-end pr o c e s s ;</p>
-<p>この例では、すべての信号はstd logic で定義されているとします。
-入力データは信号はd 、出力データ信号はq としています。
-reset にH レベルの信号を与えるとリセット動作として、q をL レベルにセットしています。
-クロック信号clock がH へ変化すると、q へd を代入します。
-動作例を以下に示します。
-a の期間ではreset = &#8216;1&#8217; が成り立つのでq &lt;= &#8216;0&#8217; が実行され続けます。
-b のタイミングではclock&#8217;event and clock = &#8216;1&#8217; が成り立ちます。これは、clock が変化したこと（clock&#8217;event ）とclock = &#8216;1&#8217; の組み合わせで、clock が0 から1 に変化したときに成り立つ、という記述の仕方です。このときq &lt;= d が実行されます。d が1 なので最終的にはq は1 になります。
-c のタイミングもb のタイミング同様、clock が0 から1 に変化したことが成り立っています。q にはd の値0 が代入されます。
-d の期間ではe やf のタイミングでclock&#8217;event が成り立っていますが、if 文（後述）でreset = &#8216;1&#8217; が先に記述されているため、e 、f は無視され、q には0 が出力され続けます。
-ちなみにFPGA が起動したとき、フリップフロップの値がH 、L どちらになっているかは決まっていません。そのため図でq はリセットがかかるまではどちらの値かわかりません（不定）。</p>
+<p>フリップフロップは主にD 型、SR 型、JK 型、T 型があります。これらをVHDL で記述するときは一般にprocess 文を使用します。</p>
+<p>フリップフロップのリセットが非同期式の場合、D フリップフロップは以下のように記述します。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">D_FF</span><span class="o">:</span> <span class="k">process</span> <span class="p">(</span><span class="n">reset</span><span class="p">,</span> <span class="n">clock</span><span class="p">)</span>
+<span class="k">begin</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">reset</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+    <span class="n">q</span> <span class="o">&lt;=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+  <span class="k">elsif</span> <span class="p">(</span><span class="n">clock</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">clock</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+    <span class="n">q</span> <span class="o">&lt;=</span> <span class="n">d</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>この例では、すべての信号は std_logic で定義されているとします。</p>
+<p>入力データは信号は d 、出力データ信号は q としています。</p>
+<p>reset に H レベルの信号を与えるとリセット動作として、q をL レベルにセットしています。</p>
+<p>クロック信号 clock が H へ変化すると、q へ d を代入します。</p>
+<p>動作例を以下に示します。</p>
+<p>a の期間では reset = &#8216;1&#8217; が成り立つので q &lt;= &#8216;0&#8217; が実行され続けます。</p>
+<p>b のタイミングでは clock&#8217;event and clock = &#8216;1&#8217; が成り立ちます。これは、clock が変化したこと（clock&#8217;event）と clock = &#8216;1&#8217; の組み合わせで、clock が 0 から 1 に変化したときに成り立つ、という記述の仕方です。このとき q &lt;= d が実行されます。d が 1 なので最終的には q は 1 になります。</p>
+<p>c のタイミングも b のタイミング同様、clock が 0 から 1 に変化したことが成り立っています。q には d の値 0 が代入されます。</p>
+<p>d の期間では e や f のタイミングで clock&#8217;event が成り立っていますが、if 文（後述）で reset = &#8216;1&#8217; が先に記述されているため、e 、f は無視され、q には 0 が出力され続けます。</p>
+<p>ちなみに FPGA が起動したとき、フリップフロップの値が H 、L どちらになっているかは決まっていません。そのため図で q はリセットがかかるまではどちらの値かわかりません（不定）。</p>
 <div class="section" id="id9">
 <h4>5.7.1 同期、非同期<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>「非同期」動作は、クロックによらず動作する箇所、「同期」動作はクロックの変化点に合わせて動作することを示しています。
-先ほどのサンプルでは、リセットは非同期動作（特にこの場合は「非同期リセット」とも呼ばれる）、データの保持は同期動作としています。</p>
-<p>注記</p>
-<p>データをクロックに同期して保持するものを一般にフリップフロップ、同期せずに保持するものをラッチと呼びます。
-これは「ディジタルコンピューティングシステム」p54 に書かれていることと逆ですが、会社などの組織毎に異なる場合があるので注意が必要です。</p>
-<p>警告</p>
-<p>FPGA に実装する回路において、一般にラッチは使用するべきではないとされています。
-フリップフロップを使った方が動作が予測しやすいため、デバイス自体にフリップフロップが組み込まれています。それに対しラッチは大規模回路では動作の予測が難しく、バグの元になりやすいため、です。
-慣れないうちは、できる限りすべてのフリップフロップは同じクロックで動作するようにし、動作を始める前にはすべて非同期リセットを行うように組むと失敗が少なくなります。</p>
-<p>注記</p>
-<p>「ディジタル回路」は信号レベル（縦軸）を離散的に扱います。「同期回路」は時間軸を離散的に扱うための手法と考えられます。「非同期回路」は時間軸に不確定な要因を持つことになるため、動作の安定性に影響します。
-この授業の実習では、その実習で使用するすべてのフリップフロップは同じクロックで動作させるようにします。
-これらを守るためには、上のD フリップフロップの例のようなセンシティビティリスト（信号名は回路に合わせる）、if 文の構成（非同期リセットとクロックの動作しかなく、それ以上はそのif 、elsif の中に書き足していく）を基本にしていきます。</p>
+<p>「非同期」動作は、クロックによらず動作する箇所、「同期」動作はクロックの変化点に合わせて動作することを示しています。</p>
+<p>先ほどのサンプルでは、リセットは非同期動作（特にこの場合は「非同期リセット」とも呼ばれる）、データの保持は同期動作としています。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>データをクロックに同期して保持するものを一般にフリップフロップ、同期せずに保持するものをラッチと呼びます。</p>
+<p class="last">これは「ディジタルコンピューティングシステム」p54 に書かれていることと逆ですが、会社などの組織毎に異なる場合があるので注意が必要です。</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>FPGA に実装する回路において、一般にラッチは使用するべきではないとされています。</p>
+<p>フリップフロップを使った方が動作が予測しやすいため、デバイス自体にフリップフロップが組み込まれています。それに対しラッチは大規模回路では動作の予測が難しく、バグの元になりやすいため、です。</p>
+<p class="last">慣れないうちは、できる限りすべてのフリップフロップは同じクロックで動作するようにし、動作を始める前にはすべて非同期リセットを行うように組むと失敗が少なくなります。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>「ディジタル回路」は信号レベル（縦軸）を離散的に扱います。「同期回路」は時間軸を離散的に扱うための手法と考えられます。「非同期回路」は時間軸に不確定な要因を持つことになるため、動作の安定性に影響します。</p>
+<p>この授業の実習では、その実習で使用するすべてのフリップフロップは同じクロックで動作させるようにします。</p>
+<p class="last">これらを守るためには、上のD フリップフロップの例のようなセンシティビティリスト（信号名は回路に合わせる）、if 文の構成（非同期リセットとクロックの動作しかなく、それ以上はそのif 、elsif の中に書き足していく）を基本にしていきます。</p>
+</div>
 </div>
 <div class="section" id="id10">
 <h4>5.7.2 if 文<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>条件分岐の基本的なもので、基本的な形は以下の通りです。</p>
-<p>i f (CONDITION) then
-~ EXPRESSION ~
-end i f ;</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>if (CONDITION) then
+  ～ EXPRESSION ～
+end if;
+</pre></div>
+</div>
 <p>条件(CONDITION) が真であれば、処理(EXPRESSION) が実行されます。
 複数の条件ごとに処理を分ける場合は以下のようになります。</p>
-<p>i f (CONDITION A) then
-~ EXPRESSION A ~
-e l s i f (CONDITION B) then
-~ EXPRESSION B ~
-e l s i f (CONDITION C) then
-~ EXPRESSION C ~
-e l s e
-~ EXPRESSION OTHER ~
-end i f ;</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>if (CONDITION_A) then
+  ～ EXPRESSION_A ～
+elsif (CONDITION_B) then
+  ～ EXPRESSION_B ～
+elsif (CONDITION_C) then
+  ～ EXPRESSION_C ～
+else
+  ～ EXPRESSION_OTHER ～
+end if;
+</pre></div>
+</div>
 <p>条件A (CONDITION-A) が真であれば処理A (EXPRESSION-A) を実行、それ以外で条件B (CONDITION-B) が真であれば処理B (EXPRESSION-B) 、それ以外で条件C (CONDITION-C) が真であれば処理C (EXPRESSION-C)、それ以外ではその他の処理(EXPRESSION-OTHERS) を実行します。</p>
-<p>注記
-一般のプログラミング言語と異なり、「else if」ではなく「elsif」と書きます。
-条件の書き方は、たとえば一致判定では
-r e s e t = &#8216;1 &#8216;
-数値の大小の比較では、
-count &gt;= &#8221; 1010 &#8221;
-となります。
-条件は複数組み合わせることができ、そのときはand 、or 、not も使用できます。
-たとえば
-a = &#8216;1 &#8216; and b = &#8216;0 &#8216;
-とすれば、２つの条件が満たされた場合、と判定されます。
-クロックの変化点での動作、つまり同期動作について括る場合の条件は、
-c lock &#8216; event and c l o c k = &#8216;1 &#8216;
-が一般的となります。これはclock の変化点と、clock がH という２つの条件のANDとなります。</p>
-<p>注記</p>
-<p>上記のような、クロックの変化点での動作の記述は、一つのif 文で複数書いても文法上は問題ありませんが、実際のデバイス上でそのような動作は行うことができません。
-一般にprocess 文の最初のif 文の構成は最大で
-pr o c e s s ( s e t , r e s e t , c l o c k )
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">一般のプログラミング言語と異なり、「else if」ではなく「elsif」と書きます。</p>
+</div>
+<p>条件の書き方は、たとえば一致判定では</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">reset</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span>
+</pre></div>
+</div>
+<p>数値の大小の比較では、</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">count</span> <span class="o">&gt;=</span> <span class="s">&quot;1010&quot;</span>
+</pre></div>
+</div>
+<p>となります。</p>
+<p>条件は複数組み合わせることができ、そのときは and 、or 、not も使用できます。</p>
+<p>たとえば</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span> <span class="k">and</span> <span class="n">b</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span>
+</pre></div>
+</div>
+<p>とすれば、２つの条件が満たされた場合、と判定されます。
+クロックの変化点での動作、つまり同期動作について括る場合の条件は、</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="n">clock</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">clock</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span>
+</pre></div>
+</div>
+<p>が一般的となります。これは clock の変化点と、clock が H という２つの条件のANDとなります。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">上記のような、クロックの変化点での動作の記述は、一つの if 文で複数書いても文法上は問題ありませんが、実際のデバイス上でそのような動作は行うことができません。</p>
+</div>
+<p>一般に process 文の最初の if 文の構成は最大で</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>process (set, reset, clock)
 begin
-i f ( r e s e t = &#8216; 1 &#8216; ) then
-~
-e l s i f ( s e t = &#8216; 1 &#8216; ) then
-~
-e l s i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-~
-end i f ;
-end pr o c e s s ;</p>
-<p>となります。
-リセット時、セット（プリセット）時、その他通常動作時を同じレベルで設定しています。
-以下の書き方は許容されますが、理解できていないうちは行うべきではありません。</p>
-<p>pr o c e s s ( c l o c k )
+  if (reset = &#39;1&#39;) then
+    ～
+  elsif (set = &#39;1&#39;) then
+    ～
+  elsif (clock&#39;event and clock = &#39;1&#39;) then
+    ～
+  end if ;
+end process;
+</pre></div>
+</div>
+<p>となります。</p>
+<p>リセット時、セット（プリセット）時、その他通常動作時を同じレベルで設定しています。</p>
+<p>以下の書き方は許容されますが、理解できていないうちは行うべきではありません。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>process (clock)
 begin
-i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-~
-end i f ;
-end pr o c e s s ;
-pr o c e s s ( c l o c k )
+  if (clock&#39;event and clock = &#39;1&#39;) then
+    ～
+  end if;
+end process;
+process (clock)
 begin
-i f ( c lock &#8216; event and c l o c k = &#8216; 0 &#8216; ) then
-~
-end i f ;
-end pr o c e s s ;</p>
-<p>同じクロックで動作する書き方ですが、1 = クロックの立ち上がりと0 = クロックの立ち下がりが混在しています。この２つのprocess 文の間でデータのやりとりがあるとき、デバイス上での動作条件が厳しくなります。
-以下の書き方は実機には基本的には組み込めません。</p>
-<p>pr o c e s s ( c l o c k )
+  if (clock&#39;event and clock = &#39;0&#39;) then
+    ～
+  end if;
+end process;
+</pre></div>
+</div>
+<p>同じクロックで動作する書き方ですが、1 = クロックの立ち上がりと 0 = クロックの立ち下がりが混在しています。この２つの process 文の間でデータのやりとりがあるとき、デバイス上での動作条件が厳しくなります。</p>
+<p>以下の書き方は実機には基本的には組み込めません。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>process (clock)
 begin
-i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-~
-e l s i f ( c lock &#8216; event and c l o c k = &#8216; 0 &#8216; ) then
-~
-end i f ;
-end pr o c e s s ;</p>
-<p>同じprocess 文内で、同じクロックの1 = クロックの立ち上がりと0 = クロックの立ち下がりが混在しています。同じsignal に対してこのような動作は指示できません。それぞれの処理に異なるsignal を入れれば組み込むことはできますが、一つ前の例と同様使うべきではありません。</p>
+  if (clock&#39;event and clock = &#39;1&#39;) then
+    ～
+  elsif (clock&#39;event and clock = &#39;0&#39;) then
+    ～
+  end if;
+end process;
+</pre></div>
+</div>
+<p>同じ process 文内で、同じクロックの 1 = クロックの立ち上がりと 0 = クロックの立ち下がりが混在しています。同じ signal に対してこのような動作は指示できません。それぞれの処理に異なる signal を入れれば組み込むことはできますが、一つ前の例と同様使うべきではありません。</p>
 </div>
 <div class="section" id="id11">
 <h4>5.7.3 マルチソース<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>HDL では、基本的に全ての行が、常に「同時」に動作していると考える必要があります。この点が、ソースコードを逐次解釈していくソフトウェアと大きく異なる点です。
-これにより、signal やport への値の代入の仕方に制限があります。
-a r c h i t e c t u r e r t l o f t e s t i s
-s i g n a l a : s t d l o g i c ;
-begin
-a &lt;= &#8216; 0 &#8216; ;
-a &lt;= &#8216; 1 &#8216; ;
-end r t l ;
-ソフトウェアであればこの場合、a に0 が代入された後でさらにa に1 が代入されます。
-しかしHDL の場合、0 と1 の代入は同時に行おうとし、論理合成の段階でエラーとなります（エラーメッセージにはmulti source という言葉が含まれます）。
-e n t i t y x i s
-por t (
-d1 : in s t d l o g i c ;
-d2 : in s t d l o g i c ;
-c l k : in s t d l o g i c ;
-q : out s t d l o g i c
-) ;
-end x ;
-a r c h i t e c t u r e r t l o f x i s
-s i g n a l a : s t d l o g i c ;
-begin
-a proc : pr o c e s s ( c l k )
-begin
-i f ( clk &#8216; event and c l k = &#8216; 1 &#8216; ) then
-a &lt;= d1 ;
-end i f ;
-end pr o c e s s ;
-b proc : pr o c e s s ( c l k )
-begin
-i f ( clk &#8216; event and c l k = &#8216; 1 &#8216; ) then
-a &lt;= d2 ;
-end i f ;
-end pr o c e s s ;
-q &lt;= a ;
-end r t l ;
-別々のprocess 文で動作させていても、同じsignal に代入しようとしているため、両方の条件が必ず衝突しない書き方出ない限り論理合成でエラーになります（そしてそのように書いたとしても不具合の修正なので書き換えているうちに条件が崩れmulti sourceのエラーになりやすいです）。
-e n t i t y x i s
-por t (
-d1 : in s t d l o g i c ;
-d2 : in s t d l o g i c ;
-c l k : in s t d l o g i c ;
-q : out s t d l o g i c
-) ;
-end x ;
-a r c h i t e c t u r e r t l o f x i s
-s i g n a l a : s t d l o g i c ;
-begin
-a proc : pr o c e s s ( c l k )
-begin
-i f ( clk &#8216; event and c l k = &#8216; 1 &#8216; ) then
-a &lt;= d1 ;
-end i f ;
-end pr o c e s s ;
-a &lt;= d2 ;
-q &lt;= a ;
-end r t l ;</p>
-<p>このようなprocess 文での順序回路と、通常の組み合わせ回路でも同様です。</p>
+<p>HDL では、基本的に全ての行が、常に「同時」に動作していると考える必要があります。この点が、ソースコードを逐次解釈していくソフトウェアと大きく異なる点です。</p>
+<p>これにより、signal や port への値の代入の仕方に制限があります。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">test</span> <span class="k">is</span>
+  <span class="k">signal</span> <span class="n">a</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+<span class="k">begin</span>
+  <span class="n">a</span> <span class="o">&lt;=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">&lt;=</span> <span class="sc">&#39;1&#39;</span><span class="p">;</span>
+<span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>ソフトウェアであればこの場合、a に 0 が代入された後でさらに a に 1 が代入されます。
+しかし HDL の場合、0 と 1 の代入は同時に行おうとし、論理合成の段階でエラーとなります（エラーメッセージには multi source という言葉が含まれます）。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">entity</span> <span class="nc">x</span> <span class="k">is</span>
+  <span class="k">port</span> <span class="p">(</span>
+    <span class="n">d1</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">d2</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">clk</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">q</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
+  <span class="p">)</span> <span class="p">;</span>
+<span class="k">end</span> <span class="nc">x</span><span class="p">;</span>
+
+<span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">x</span> <span class="k">is</span>
+  <span class="k">signal</span> <span class="n">a</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+<span class="k">begin</span>
+  <span class="n">a_proc</span> <span class="o">:</span> <span class="k">process</span> <span class="p">(</span><span class="n">clk</span><span class="p">)</span>
+  <span class="k">begin</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">clk</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">clk</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">d1</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+
+  <span class="n">b_proc</span> <span class="o">:</span> <span class="k">process</span> <span class="p">(</span><span class="n">clk</span><span class="p">)</span>
+  <span class="k">begin</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">clk</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">clk</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">d2</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+
+  <span class="n">q</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">;</span>
+
+<span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>別々の process 文で動作させていても、同じ signal に代入しようとしているため、両方の条件が必ず衝突しない書き方出ない限り論理合成でエラーになります（そしてそのように書いたとしても不具合の修正なので書き換えているうちに条件が崩れ multi source のエラーになりやすいです）。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">entity</span> <span class="nc">x</span> <span class="k">is</span>
+  <span class="k">port</span> <span class="p">(</span>
+    <span class="n">d1</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">d2</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">clk</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">q</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
+  <span class="p">)</span> <span class="p">;</span>
+<span class="k">end</span> <span class="nc">x</span> <span class="p">;</span>
+
+<span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">x</span> <span class="k">is</span>
+  <span class="k">signal</span> <span class="n">a</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+<span class="k">begin</span>
+  <span class="n">a</span> <span class="n">proc</span> <span class="o">:</span> <span class="k">process</span> <span class="p">(</span><span class="n">clk</span><span class="p">)</span>
+  <span class="k">begin</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">clk</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">clk</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">d1</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+
+  <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">d2</span><span class="p">;</span>
+  <span class="n">q</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">;</span>
+
+<span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>このような process 文での順序回路と、通常の組み合わせ回路でも同様です。</p>
 </div>
 <div class="section" id="process-if">
 <h4>5.7.4 process 文、if 文によるフリップフロップの記述のお約束<a class="headerlink" href="#process-if" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>この教科書ではこの先順序回路を多く使用します。その際、後々のトラブルを避けるため、以下のような書き方を避けることをおすすめします。</p>
-<p>pr o c e s s ( r e s e t , c lock , a , b)
+<div class="highlight-vhdl"><div class="highlight"><pre>process (reset, clock, a, b)
 begin
-i f ( r e s e t = &#8216; 1 &#8216; ) then
-~ RESET PROCEDURE ~
-e l s i f ( c lock &#8216; event and c l o c k = &#8216;1 &#8216; and a = &#8216; 1 &#8216; ) then
-~ PROCEDURE A ~
-e l s i f ( c lock &#8216; event and c l o c k = &#8216;1 &#8216; and b = &#8216; 1 &#8216; ) then
-~ PROCEDURE B ~
-end i f ;
-end pr o c e s s ;</p>
-<p>どうやら、リセット処理(RESET-PROCEDURE)、クロックに同期した上でa が1 の時の処理(PROCEDURE-A)、クロックに同期した上でb が1 の時の処理(PROCEDURE-B)を行いたいらしい。
-このような場合は以下のように、クロックによる動作と論理を分離して記述すると良いでしょう。</p>
-<p>pr o c e s s ( r e s e t , c l o c k )
+  if (reset = &#39;1&#39;) then
+    ～ RESET-PROCEDURE ～
+  elsif (clock&#39;event and clock = &#39;1&#39; and a = &#39;1&#39;) then
+    ～ PROCEDURE-A ～
+  elsif (clock&#39;event and clock = &#39;1&#39; and b = &#39;1&#39;) then
+    ～ PROCEDURE-B ～
+  end if;
+end process;
+</pre></div>
+</div>
+<p>どうやら、リセット処理(RESET-PROCEDURE)、クロックに同期した上で a が 1 の時の処理(PROCEDURE-A)、クロックに同期した上で b が 1 の時の処理(PROCEDURE-B)を行いたいらしい。</p>
+<p>このような場合は以下のように、クロックによる動作と論理を分離して記述すると良いでしょう。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>process (reset , clock)
 begin
-i f ( r e s e t = &#8216; 1 &#8216; ) then
-~ RESET PROCEDURE ~
-e l s i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-i f ( a = &#8216; 1 &#8216; ) then
-~ PROCEDURE A ~
-e l s i f (b = &#8216; 1 &#8216; ) then
-~ PROCEDURE B ~
-end i f ;
-end i f ;
-end pr o c e s s ;</p>
-<p>クロックの条件に追加で書いていると、この授業のレベルではその箇所でミスをしやすくなります。
-またクロックの条件と分離することで、他へのコピー＆ペーストでのミスも減ります。
-このほか、以下の箇所で代入を行っても、意図した動作にならない可能性が高いです。</p>
-<p>pr o c e s s ( r e s e t , c l o c k )
+  if (reset = &#39;1&#39;) then
+    ～ RESET PROCEDURE ～
+  elsif (clock&#39;event and clock = &#39;1&#39;) then
+    if (a = &#39;1&#39;) then
+      ～ PROCEDURE A ～
+    elsif (b = &#39;1&#39;) then
+      ～ PROCEDURE B ～
+    end if;
+  end if;
+end process ;
+</pre></div>
+</div>
+<p>クロックの条件に追加で書いていると、この授業のレベルではその箇所でミスをしやすくなります。</p>
+<p>またクロックの条件と分離することで、他へのコピー＆ペーストでのミスも減ります。</p>
+<p>このほか、以下の箇所で代入を行っても、意図した動作にならない可能性が高いです。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>process (reset , clock)
 begin
-i f ( r e s e t = &#8216; 1 &#8216; ) then
-~ RESET PROCEDURE ~
-e l s i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-~ MAIN PROCEDURE ~
-end i f ;
-a &lt;= b ;
-end i f ;</p>
-<p>a へb を代入していますが、この位置ではセンシティビティリストに入るreset とclockの条件を無視した位置にあるため、どのような動作になるか保証できません。
-process 文の外か、if 文の中に入れましょう。</p>
+  if (reset = &#39;1&#39;) then
+    ～ RESET PROCEDURE ～
+  elsif (clock&#39;event and clock = &#39;1&#39;) then
+    ～ MAIN PROCEDURE ～
+  end if;
+  a &lt;= b;
+end process;
+</pre></div>
+</div>
+<p>a へ b を代入していますが、この位置ではセンシティビティリストに入る reset と clock の条件を無視した位置にあるため、どのような動作になるか保証できません。</p>
+<p>process 文の外か、if 文の中に入れましょう。</p>
 </div>
 <div class="section" id="id12">
 <h4>5.7.5 演習<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>プロジェクト名vhdl05</p>
+<p>プロジェクト名 vhdl05</p>
 <p>D フリップフロップを作る</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl05 i s
-por t (
-sw1 : in s t d l o g i c ;    data
-sw2 : in s t d l o g i c ;    c l o c k
-sw3 : in s t d l o g i c ;    r e s e t
-l ed1 : out s t d l o g i c
-) ;
-end vhdl05 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl05 i s
-s i g n a l d : s t d l o g i c ;
-begin
-d f f : pr o c e s s ( sw2 , sw3 )
-begin
-i f ( sw3 = &#8216; 1 &#8216; ) then
-d &lt;= &#8216; 0 &#8216; ;
-e l s i f ( sw2 &#8216; event and sw2 = &#8216; 1 &#8216; ) then
-d &lt;= sw1 ;
-end i f ;
-end pr o c e s s ;
-l ed1 &lt;= d ;
-end beha v i o r a l ;</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">library</span> <span class="nn">ieee</span> <span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_1164.all</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_arith.all</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_unsigned.all</span><span class="p">;</span>
+
+<span class="k">entity</span> <span class="nc">vhdl05</span> <span class="k">is</span>
+  <span class="k">port</span> <span class="p">(</span>
+    <span class="n">sw1</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span> <span class="p">;</span> <span class="c1">-- data</span>
+    <span class="n">sw2</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span> <span class="p">;</span> <span class="c1">-- clock</span>
+    <span class="n">sw3</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span> <span class="p">;</span> <span class="c1">-- reset</span>
+    <span class="n">led1</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
+  <span class="p">);</span>
+<span class="k">end</span> <span class="nc">vhdl05</span><span class="p">;</span>
+
+<span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">vhdl05</span> <span class="k">is</span>
+  <span class="k">signal</span> <span class="n">d</span> <span class="o">:</span> <span class="kt">std_logic</span><span class="p">;</span>
+<span class="k">begin</span>
+  <span class="n">dff</span> <span class="o">:</span> <span class="k">process</span> <span class="p">(</span><span class="n">sw2</span><span class="p">,</span> <span class="n">sw3</span><span class="p">)</span>
+  <span class="k">begin</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sw3</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">d</span> <span class="o">&lt;=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+    <span class="k">elsif</span> <span class="p">(</span><span class="n">sw2</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">sw2</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">sw1</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+
+  <span class="n">led1</span> <span class="o">&lt;=</span> <span class="n">d</span><span class="p">;</span>
+<span class="k">end</span> <span class="nc">rtl</span><span class="p">;</span>
+</pre></div>
+</div>
 <p>ヒント</p>
-<p>&#8220;{&#8220;（マイナス２個）以降は改行までコメントとして無視されます。
-この例では、sw1 をデータ入力、sw2 をクロック、sw3 をリセットとして使用しています。
-シグナルd をD フリップフロップの実態という意味で定義しています。
-sw3 をH にすると、フリップフロップをリセットします。
-sw2 がH に変化したタイミング（立ち上がりエッジ）で、sw1 の内容をd へ代入します。そのほかのタイミングではsw1 の変化の影響を受けません。
-process 文内の処理はsw2 とsw3 の変化でしか行われないため、センシティビティリストにはsw2 とsw3 しか書いていません。
-led1 にはd の内容を出力しています。</p>
+<p>&#8220;&#8211;&#8221;（マイナス２個）以降は改行までコメントとして無視されます。</p>
+<p>この例では、sw1 をデータ入力、sw2 をクロック、sw3 をリセットとして使用しています。</p>
+<p>シグナル d を D フリップフロップの実態という意味で定義しています。</p>
+<p>sw3 を H にすると、フリップフロップをリセットします。</p>
+<p>sw2 が H に変化したタイミング（立ち上がりエッジ）で、sw1 の内容を d へ代入します。そのほかのタイミングでは sw1 の変化の影響を受けません。</p>
+<p>process 文内の処理は sw2 と sw3 の変化でしか行われないため、センシティビティリストには sw2 と sw3 しか書いていません。</p>
+<p>led1 には d の内容を出力しています。</p>
 <p>動作確認</p>
 <ol class="arabic simple">
 <li>sw1、sw2、sw3 をすべてOFF にする。</li>
-<li>まずsw3 をON → OFF して、リセットする。</li>
-<li>sw2 をON → OFF して、led1 が変化しないことを確認する。（入力データsw1 がOFF なので、OFF のデータを改めてサンプルするだけ）</li>
-<li>sw1 をON にする。</li>
-<li>sw2 をON → OFF して、led1 が変化することを確認する。</li>
-<li>sw1 をOFF にしてもled1 が変化しないことを確認する。</li>
-<li>sw2 をON → OFF して、led1 が変化することを確認する。</li>
+<li>まず sw3 を ON → OFF して、リセットする。</li>
+<li>sw2 を ON → OFF して、led1 が変化しないことを確認する。（入力データ sw1 が OFF なので、OFF のデータを改めてサンプルするだけ）</li>
+<li>sw1 を ON にする。</li>
+<li>sw2 を ON → OFF して、 led1 が変化することを確認する。</li>
+<li>sw1 を OFF にしても led1 が変化しないことを確認する。</li>
+<li>sw2 を ON → OFF して、 led1 が変化することを確認する。</li>
 </ol>
 </div>
 <div class="section" id="id13">
 <h4>5.7.6 課題<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>プロジェクト名vhdl06</p>
+<p>プロジェクト名 vhdl06</p>
 <p>下記のソースコードに追記して、JK フリップフロップを作れ</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl06 i s
-por t (
-sw1 : in s t d l o g i c ;    J
-sw2 : in s t d l o g i c ;    c l o c k
-sw3 : in s t d l o g i c ;    K
-sw4 : in s t d l o g i c ;    r e s e t
-l ed1 : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl06 i s
+port (
+sw1 : in std_logic ;    J
+sw2 : in std_logic ;    clock
+sw3 : in std_logic ;    K
+sw4 : in std_logic ;    reset
+l ed1 : out std_logic
 ) ;
 end vhdl06 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl06 i s
-s i g n a l jk : s t d l o g i c ;
+architecture rtl o f vhdl06 i s
+signal jk : std_logic ;
 begin
-j k f f p r o c : pr o c e s s ( sw4 , sw2 )
+j k f f p r o c : process (sw4 , sw2)
 begin
-i f ( sw4 = &#8216; 1 &#8216; ) then</p>
+if (sw4 = &#8216;1&#8217;) then</p>
 <blockquote>
 <div>put code below
 put code above</div></blockquote>
 <dl class="docutils">
-<dt>e l s i f ( sw2 &#8216; event and sw2 = &#8216; 1 &#8216; ) then</dt>
+<dt>elsif (sw2&#8217;event and sw2 = &#8216;1&#8217;) then</dt>
 <dd>put code below
 put code above</dd>
 </dl>
-<p>end i f ;
-end pr o c e s s ;
+<p>end if ;
+end process ;
 l ed1 &lt;= jk ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>２箇所のput code below&#8221; からput code above&#8221; の間にコードを書いてください。
 ソースコード中で指定しているようなスイッチのアサインで、JK フリップフロップを作成してください。</p>
 <p>表5.2 真理値表
@@ -924,32 +1020,32 @@ sw2 (clock) sw1(J) sw3(K) led1(Q → jk)
 <p>フリップフロップはクロックに合わせて値を保持します。複数ビットのフリップフロップの組み合わせの出力に加算器を接続し、その結果をフリップフロップに戻すことで、次のクロックでは加算後の結果が保持されます。
 加える値が１であれば、１ずつ増えていくカウンタとなります。</p>
 <p>プロジェクト名vhdl07</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl07 i s
-por t (
-gc lk0 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c ;
-l ed2 : out s t d l o g i c ;
-l ed3 : out s t d l o g i c ;
-l ed4 : out s t d l o g i c ;
-l ed5 : out s t d l o g i c ;
-l ed6 : out s t d l o g i c ;
-l ed7 : out s t d l o g i c ;
-l ed8 : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl07 i s
+port (
+gclk0 : in std_logic ;
+l ed1 : out std_logic ;
+l ed2 : out std_logic ;
+l ed3 : out std_logic ;
+l ed4 : out std_logic ;
+l ed5 : out std_logic ;
+l ed6 : out std_logic ;
+l ed7 : out std_logic ;
+l ed8 : out std_logic
 ) ;
 end vhdl07 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl07 i s
-s i g n a l c : s t d l o g i c v e c t o r (24 downto 0) ;
+architecture rtl o f vhdl07 i s
+signal c : std_logic_vector (24 downto 0) ;
 begin
-count : pr o c e s s ( gc lk0 )
+count : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
 c &lt;= c + 1 ;
-end i f ;
-end pr o c e s s ;
+end if ;
+end process ;
 l ed8 &lt;= not c (2 4) ;
 l ed7 &lt;= not c (2 3) ;
 l ed6 &lt;= not c (2 2) ;
@@ -958,7 +1054,7 @@ l ed4 &lt;= not c (2 0) ;
 l ed3 &lt;= not c (1 9) ;
 l ed2 &lt;= not c (1 8) ;
 l ed1 &lt;= not c (1 7) ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>クロックはあらかじめ、32MHz を選択しておきます（JP3、JP4、JP5 のうちJP5 だけショートさせる）。
 カウンタの信号はc で、process 文count の中でクロックの立ち上がりエッジの度に１を加えます。
 c の幅は25bit なので、0 ～ 33,554,431 までの値を扱うことができます。入力しているクロックが32MHz なので、約２秒で一周するよう、LED が点灯します。
@@ -977,35 +1073,35 @@ LED には、上位8bit のみ表示しています。
 通常デバイス内では後者、デバイスの外では前者が使われることが多いです。
 ４分周の２つめのパターンの例を以下に示します。</p>
 <p>プロジェクト名vhdl08</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl08 i s
-por t (
-gc lk0 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c ;
-l ed2 : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl08 i s
+port (
+gclk0 : in std_logic ;
+l ed1 : out std_logic ;
+l ed2 : out std_logic
 ) ;
 end vhdl08 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl08 i s
-s i g n a l c : s t d l o g i c v e c t o r (1 downto 0) ;
-s i g n a l r : s t d l o g i c ;
+architecture rtl o f vhdl08 i s
+signal c : std_logic_vector (1 downto 0) ;
+signal r : std_logic ;
 begin
-di v pr o c : pr o c e s s ( g c lk0 )
+di v pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
 c &lt;= c + 1 ;
-i f ( c = &#8220;11&#8221; ) then
-r &lt;= &#8216; 1 &#8216; ;
-e l s e
-r &lt;= &#8216; 0 &#8216; ;
-end i f ;
-end i f ;
-end pr o c e s s ;
+if (c = &#8220;11&#8221;) then
+r &lt;= &#8216;1&#8217; ;
+else
+r &lt;= &#8216;0&#8217; ;
+end if ;
+end if ;
+end process ;
 l ed1 &lt;= not r ;
-l ed2 &lt;= &#8216; 0 &#8216; ;
-end beha v i o r a l ;</p>
+l ed2 &lt;= &#8216;0&#8217; ;
+end rtl ;</p>
 <p>この中でc は１０進数で０～３までカウントし、r にはそのうち３のときだけ&#8216;1&#8217; がセットされます。その反転によるLED の点灯がされるため、gclk0 32MHz で４周期のうち１サイクルだけ点灯することになり、結果として単純に点灯しているled2 に比べled1が暗くなります。</p>
 </div>
 <div class="section" id="id16">
@@ -1013,39 +1109,39 @@ end beha v i o r a l ;</p>
 <p>プロジェクト名vhdl09</p>
 <p>約１秒周期でled1 の点灯、消灯を繰り返す回路を作れ
 （約0.5 秒点灯、約0.5 秒消灯を繰り返す）</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl09 i s
-por t (
-g c lk0 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl09 i s
+port (
+gclk0 : in std_logic ;
+l ed1 : out std_logic
 ) ;
 end vhdl09 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl09 i s
-s i g n a l c : s t d l o g i c v e c t o r (24 downto 0) ;    count e r
-s i g n a l r : s t d l o g i c ;    i n v e r t t when i t i s H l e v e l
-s i g n a l t : s t d l o g i c ;    T f l i p f l o p
+architecture rtl o f vhdl09 i s
+signal c : std_logic_vector (24 downto 0) ;    count e r
+signal r : std_logic ;    i n v e r t t when i t i s H l e v e l
+signal t : std_logic ;    T f l i p f l o p
 begin
-cnt pr o c : pr o c e s s ( g c lk0 )
+cnt pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then</p>
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then</p>
 <blockquote>
 <div>put code below
 put code above</div></blockquote>
-<p>end i f ;
-end pr o c e s s ;
-t pr o c : pr o c e s s ( gc lk0 )
+<p>end if ;
+end process ;
+t pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then</p>
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then</p>
 <blockquote>
 <div>put code below
 put code above</div></blockquote>
-<p>end i f ;
-end pr o c e s s ;
+<p>end if ;
+end process ;
 l ed1 &lt;= t ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>分周回路とT フリップフロップ（のような動作）を組み合わせて作成します。基板上、JP5 のジャンパをショートし、gclk0 の周波数を32MHz に設定します。分周回路は、１クロックだけH レベルを作るような構成にする必要があります。先ほどの分周回路では&#8221;11&#8221; と比較していたところを、今回は(2^25)-1 、つまり&#8221;111111111111111111111111&#8221;と比較することになります。このときにr を1 にセットします。
 T フリップフロップは単純で、入力信号が1 であれば反転、0 であればデータを維持します。
 r は、32MHz を33,554,431 回カウントする毎に1 になるため、そのたびにt が反転されます。それをled1 に出力すれば、目的の回路ができあがります。</p>
@@ -1060,21 +1156,23 @@ r は、32MHz を33,554,431 回カウントする毎に1 になるため、そ�
 この応用した回路に、スイッチからの信号を入力します。スイッチを切り替えない期間では、カウンタの値は０か最大のいずれかで安定します。
 スイッチを切り替えた時、入力はH とL が激しく切り替わります。応用した回路では入力のH が一定期間維持されるとH を出力するよう動作しますので、この「一定期間」が数ミリ秒となるようなカウンタの最大値を設定すれば良いことになります。
 応用回路はたとえば以下のようなソースになります。clock は積分していくサイクル、sw1 がチャタリングのあるスイッチからの入力、r がチャタリング除去後の出力です。</p>
-<p>pr o c e s s ( c l o c k )
-begin
-i f ( c lock &#8216; event and c l o c k = &#8216; 1 &#8216; ) then
-i f ( sw1 = &#8216; 0 &#8216; ) then
-c &lt;= &#8221; 000000000000000 &#8221; ;
-e l s i f ( c /= &#8221; 111111111111111 &#8221; ) and ( sw1 = &#8216; 1 &#8216; ) ) then
-c &lt;= c + 1 ;
-end i f ;
-i f ( c = &#8221; 111111111111111 &#8221; ) then
-r &lt;= &#8216; 1 &#8216; ;
-e l s e
-r &lt;= &#8216; 0 &#8216; ;
-end i f ;
-end i f ;
-end pr o c e s s ;</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">process</span> <span class="p">(</span><span class="n">clock</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">clock</span><span class="na">&#39;event</span> <span class="k">and</span> <span class="n">clock</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">sw1</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="k">then</span>
+<span class="n">c</span> <span class="o">&lt;=</span> <span class="s">&quot;000000000000000&quot;</span> <span class="p">;</span>
+<span class="k">elsif</span> <span class="p">(</span><span class="n">c</span> <span class="o">/=</span> <span class="s">&quot;111111111111111&quot;</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="n">sw1</span> <span class="o">=</span> <span class="sc">&#39;1&#39;</span><span class="p">))</span> <span class="k">then</span>
+<span class="n">c</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">;</span>
+<span class="k">end</span> <span class="k">if</span> <span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="s">&quot;111111111111111&quot;</span><span class="p">)</span> <span class="k">then</span>
+<span class="n">r</span> <span class="o">&lt;=</span> <span class="sc">&#39;1&#39;</span> <span class="p">;</span>
+<span class="k">else</span>
+<span class="n">r</span> <span class="o">&lt;=</span> <span class="sc">&#39;0&#39;</span> <span class="p">;</span>
+<span class="k">end</span> <span class="k">if</span> <span class="p">;</span>
+<span class="k">end</span> <span class="k">if</span> <span class="p">;</span>
+<span class="k">end</span> <span class="k">process</span> <span class="p">;</span>
+</pre></div>
+</div>
 <p>最初のif 文では、カウンタによる積分回路を構成しています。
 スイッチが離されたら（ sw1 = &#8216;0&#8217;）カウンタの値は即０とします。
 スイッチが押された場合（ sw1 = &#8216;1&#8217;）、カウンタがいっぱいでなければ（ c /= &#8220;111111111111111&#8221;、&#8221;/=&#8221;は&#8221;一致していない&#8221; の意味）カウントします（ c &lt;= c + 1）。
@@ -1098,64 +1196,64 @@ end pr o c e s s ;</p>
 <h4>5.11.1 演習<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>プロジェクト名vhdl10</p>
 <p>スイッチを押す度にLED の点灯、消灯を切り替える回路を作る。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl10 i s
-por t (
-gc lk0 : in s t d l o g i c ;
-sw1 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl10 i s
+port (
+gclk0 : in std_logic ;
+sw1 : in std_logic ;
+l ed1 : out std_logic
 ) ;
 end vhdl10 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl10 i s
-s i g n a l c : s t d l o g i c v e c t o r (14 downto 0) ;
-s i g n a l r : s t d l o g i c ;
-s i g n a l d1 : s t d l o g i c ;
-s i g n a l d2 : s t d l o g i c ;
-s i g n a l s : s t d l o g i c ;
-s i g n a l t : s t d l o g i c ;
+architecture rtl o f vhdl10 i s
+signal c : std_logic_vector (14 downto 0) ;
+signal r : std_logic ;
+signal d1 : std_logic ;
+signal d2 : std_logic ;
+signal s : std_logic ;
+signal t : std_logic ;
 begin</p>
 <blockquote>
 <div>c h a t t e r i n g c anc e l</div></blockquote>
-<p>sum proc : pr o c e s s ( g c lk0 )
+<p>sum proc : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
-i f ( sw1 = &#8216; 0 &#8216; ) then
-c &lt;= &#8221; 000000000000000 &#8221; ;
-e l s i f ( ( c /= &#8221; 111111111111111 &#8221; ) and ( sw1 = &#8216; 1 &#8216; ) ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+if (sw1 = &#8216;0&#8217;) then
+c &lt;= &#8220;000000000000000&#8221; ;
+elsif ((c /= &#8220;111111111111111&#8221;) and (sw1 = &#8216;1&#8217;)) then
 c &lt;= c + 1 ;
-end i f ;
-i f ( c = &#8221; 111111111111111 &#8221; ) then
-r &lt;= &#8216; 1 &#8216; ;
-e l s e
-r &lt;= &#8216; 0 &#8216; ;
-end i f ;
-end i f ;
-end pr o c e s s ;</p>
+end if ;
+if (c = &#8220;111111111111111&#8221;) then
+r &lt;= &#8216;1&#8217; ;
+else
+r &lt;= &#8216;0&#8217; ;
+end if ;
+end if ;
+end process ;</p>
 <blockquote>
 <div>d i f f e r e n c e</div></blockquote>
-<p>d i f f p r o c : pr o c e s s ( g c lk0 )
+<p>d i f f p r o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
 d1 &lt;= r ;
 d2 &lt;= d1 ;
-end i f ;
-end pr o c e s s ;
-s &lt;= d1 and ( not d2 ) ;</p>
+end if ;
+end process ;
+s &lt;= d1 and (not d2) ;</p>
 <blockquote>
 <div>T f l i p</div></blockquote>
-<p>f l o p t pr o c : pr o c e s s ( g c lk0 )
+<p>f l o p t pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
-i f ( s = &#8216; 1 &#8216; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+if (s = &#8216;1&#8217;) then
 t &lt;= not t ;
-end i f ;
-end i f ;
-end pr o c e s s ;
+end if ;
+end if ;
+end process ;
 l ed1 &lt;= t ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>diff proc とその直後のs への代入が微分回路になります。</p>
 </div>
 </div>
@@ -1167,79 +1265,78 @@ end beha v i o r a l ;</p>
 <p>０～９まで、１秒間に１ずつカウントする、１０進カウンタを作れ。カウント値は９の次は０に戻る。
 signal r は１秒に１回、１サイクルだけH レベルになる信号となる。
 led1 が点滅する場合は誤りがある。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl11 i s
-por t (
-gc lk0 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c ;
-s l ed1 a : out s t d l o g i c ;
-s l ed1b : out s t d l o g i c ;
-s l e d 1 c : out s t d l o g i c ;
-s l ed1d : out s t d l o g i c ;
-s l e d 1 e : out s t d l o g i c ;
-s l e d 1 f : out s t d l o g i c ;
-s l ed1 g : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl11 i s
+port (
+gclk0 : in std_logic ;
+l ed1 : out std_logic ;
+s l ed1 a : out std_logic ;
+s l ed1b : out std_logic ;
+s l e d 1 c : out std_logic ;
+s l ed1d : out std_logic ;
+s l e d 1 e : out std_logic ;
+s l e d 1 f : out std_logic ;
+s l ed1 g : out std_logic
 ) ;
 end vhdl11 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl11 i s
-s i g n a l d : s t d l o g i c v e c t o r (24 downto 0) ;
-s i g n a l r : s t d l o g i c ;
-s i g n a l c : s t d l o g i c v e c t o r (3 downto 0) ;
-s i g n a l s l e d : s t d l o g i c v e c t o r (6 downto 0) ;
-s i g n a l ck : s t d l o g i c ;
+architecture rtl o f vhdl11 i s
+signal d : std_logic_vector (24 downto 0) ;
+signal r : std_logic ;
+signal c : std_logic_vector (3 downto 0) ;
+signal s l e d : std_logic_vector (6 downto 0) ;
+signal ck : std_logic ;
 begin
-di v pr o c : pr o c e s s ( g c lk0 )
+di v pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
 d &lt;= d + 1 ;
-i f (d = &#8221; 1111010000100011111111111 &#8221; ) then
-r &lt;= &#8216; 1 &#8216; ;
-d &lt;= &#8221; 0000000000000000000000000 &#8221; ;
-e l s e
-r &lt;= &#8216; 0 &#8216; ;
-end i f ;
-end i f ;
-end pr o c e s s ;
-cnt pr o c : pr o c e s s ( g c lk0 )
+if (d = &#8220;1111010000100011111111111&#8221;) then
+r &lt;= &#8216;1&#8217; ;
+d &lt;= &#8220;0000000000000000000000000&#8221; ;
+else
+r &lt;= &#8216;0&#8217; ;
+end if ;
+end if ;
+end process ;
+cnt pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then</p>
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then</p>
 <blockquote>
 <div>put code below
 put code above</div></blockquote>
-<p>end i f ;
-end pr o c e s s ;
-chk proc : pr o c e s s ( g c lk0 )
+<p>end if ;
+end process ;
+chk proc : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
-i f ( c = &#8221; 1010 &#8221; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+if (c = &#8220;1010&#8221;) then
 ck &lt;= not ck ;
-end i f ;
-end i f ;
-end pr o c e s s ;
-s l e d &lt;= &#8221; 0010000 &#8221; when ( c = &#8221; 1001 &#8221; )
-e l s e &#8221; 0000000 &#8221; when ( c = &#8221; 1000 &#8221; )
-e l s e &#8221; 1111000 &#8221; when ( c = &#8221; 0111 &#8221; )
-e l s e &#8221; 0000010 &#8221; when ( c = &#8221; 0110 &#8221; )
-e l s e &#8221; 0010010 &#8221; when ( c = &#8221; 0101 &#8221; )
-e l s e &#8221; 0011001 &#8221; when ( c = &#8221; 0100 &#8221; )
-e l s e &#8221; 0110000 &#8221; when ( c = &#8221; 0011 &#8221; )
-e l s e &#8221; 0100100 &#8221; when ( c = &#8221; 0010 &#8221; )
-e l s e &#8221; 1111001 &#8221; when ( c = &#8221; 0001 &#8221; )
-e l s e &#8221; 1000000 &#8221; when ( c = &#8221; 0000 &#8221; )
-e l s e &#8221; 0000110 &#8221; ;
-s l ed1 a &lt;= s l e d ( 0 ) ;
-s l ed1b &lt;= s l e d ( 1 ) ;
-50 第5 章演習
-s l e d 1 c &lt;= s l e d ( 2 ) ;
-s l ed1d &lt;= s l e d ( 3 ) ;
-s l e d 1 e &lt;= s l e d ( 4 ) ;
-s l e d 1 f &lt;= s l e d ( 5 ) ;
-s l ed1 g &lt;= s l e d ( 6 ) ;
+end if ;
+end if ;
+end process ;
+s l e d &lt;= &#8220;0010000&#8221; when (c = &#8220;1001&#8221;)
+else &#8220;0000000&#8221; when (c = &#8220;1000&#8221;)
+else &#8220;1111000&#8221; when (c = &#8220;0111&#8221;)
+else &#8220;0000010&#8221; when (c = &#8220;0110&#8221;)
+else &#8220;0010010&#8221; when (c = &#8220;0101&#8221;)
+else &#8220;0011001&#8221; when (c = &#8220;0100&#8221;)
+else &#8220;0110000&#8221; when (c = &#8220;0011&#8221;)
+else &#8220;0100100&#8221; when (c = &#8220;0010&#8221;)
+else &#8220;1111001&#8221; when (c = &#8220;0001&#8221;)
+else &#8220;1000000&#8221; when (c = &#8220;0000&#8221;)
+else &#8220;0000110&#8221; ;
+s l ed1 a &lt;= s l e d (0) ;
+s l ed1b &lt;= s l e d (1) ;
+s l e d 1 c &lt;= s l e d (2) ;
+s l ed1d &lt;= s l e d (3) ;
+s l e d 1 e &lt;= s l e d (4) ;
+s l e d 1 f &lt;= s l e d (5) ;
+s l ed1 g &lt;= s l e d (6) ;
 l ed1 &lt;= ck ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>７セグメントLED の点灯パターンはコードの通りになる、LED の配置は図のようになっています。port にL を出力すると、電位差で電流が流れLED が点灯します。</p>
 </div>
 </div>
@@ -1247,43 +1344,57 @@ end beha v i o r a l ;</p>
 <h3>5.13 階層設計<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>規模が大きくなってくると、すべてのコードを一つのarchitecture に書ききることが問題になります。そのためコードを機能ブロック毎に分割し呼び出すことができるようになっています。
 例を以下に示します。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y Y chi ld i s
-por t (
-~ PORT DEFINITION(CHILD) ~
-) ;
-end Y chi ld ;
-a r c h i t e c t u r e A Y chi ld o f Y chi ld i s
-~ SIGNAL DEFINITION(CHILD) ~
+<div class="highlight-vhdl"><div class="highlight"><pre>library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity Y_child is
+  port (
+  ～ PORT_DEFINITION(CHILD) ～
+  );
+end Y child ;
+
+architecture A_Y_child of Y_child is
+  ～ SIGNAL_DEFINITION(CHILD) ～
 begin
-~ EXPRESSIONS(CHILD) ~
-end A Y chi ld ;</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y X parent i s
-por t (
-~ PORT DEFINITION(PARENT) ~
-) ;
-end X parent ;
-a r c h i t e c t u r e A X parent o f X parent i s
-component Y chi ld
-por t (
-~ PORT DEFINITION(CHILD) ~
-) ;
-end component ;
-~ SIGNAL DEFINITION(PARENT) ~
+  ～ EXPRESSIONS(CHILD) ～
+end A Y chi ld ;
+
+
+library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity X_parent is
+  port (
+    ～ PORT_DEFINITION(PARENT) ～
+  );
+end X_parent;
+
+architecture A_X_parent of X_parent is
+
+  component Y_child
+    port (
+      ～ PORT_DEFINITION(CHILD) ～
+    );
+  end component;
+
+  ～ SIGNAL_DEFINITION(PARENT) ～
+
 begin
-i Y c h i l d : Y chi ld
-por t map (
-~ PORT CONNECTION(CHILD PARENT) ~
-) ;
-~ OTHER EXPRESSIONS(PARENT) ~
-end A X parent ;</p>
+
+  i_Y_child : Y_child
+    port map (
+      ～ PORT_CONNECTION(CHILD PARENT) ～
+    );
+
+  ～ OTHER_EXPRESSIONS(PARENT) ～
+
+end A_X_parent;
+</pre></div>
+</div>
 <p>処理を抜き出した、他から呼び出される側のentity は、通常通り作成します。
 処理を呼び出す場合は２段階の手続きがあります。
 まずarchitecture からbegin までの間で、component 宣言を行います。ここで、呼び出すentity はすべて宣言します。
@@ -1292,144 +1403,144 @@ end A X parent ;</p>
 <p>counter10.vhd</p>
 <p>注記</p>
 <p>counter10.vhd とledconv.vhd は、vhdl11b プロジェクトを作成した後、それぞれvhdl11b.vhd と同様に le → new → VHDL  le で作成します。</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y count e r10 i s
-por t (
-gc lk0 : in s t d l o g i c ;
-sw1 : in s t d l o g i c ;</p>
-<p>e i n : in s t d l o g i c ;
-c i n : in s t d l o g i c ;</p>
-<p>c out : out s t d l o g i c ;</p>
-<p>cnt : out s t d l o g i c v e c t o r (3 downto 0)
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity count e r10 i s
+port (
+gclk0 : in std_logic ;
+sw1 : in std_logic ;</p>
+<p>e i n : in std_logic ;
+c i n : in std_logic ;</p>
+<p>c out : out std_logic ;</p>
+<p>cnt : out std_logic_vector (3 downto 0)
 ) ;
 end counte r10 ;
-a r c h i t e c t u r e beha v i o r a l o f count e r10 i s
-s i g n a l c : s t d l o g i c v e c t o r (3 downto 0) ;
+architecture rtl o f count e r10 i s
+signal c : std_logic_vector (3 downto 0) ;
 begin
-cnt pr o c : pr o c e s s ( sw1 , g c lk0 )
+cnt pr o c : process (sw1 , gclk0)
 begin
-i f ( sw1 = &#8216; 1 &#8216; ) then
-c &lt;= &#8221; 0000 &#8221; ;
-e l s i f ( gclk0 &#8216; event and gc lk0 = &#8216; 1 &#8216; ) then
-i f ( ( e i n = &#8216; 1 &#8216; ) and ( c i n = &#8216; 1 &#8216; ) ) then</p>
+if (sw1 = &#8216;1&#8217;) then
+c &lt;= &#8220;0000&#8221; ;
+elsif (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+if ((e i n = &#8216;1&#8217;) and (c i n = &#8216;1&#8217;)) then</p>
 <blockquote>
 <div>put code below
 put code above</div></blockquote>
-<p>end i f ;
-end i f ;
-end pr o c e s s ;
-c out &lt;= &#8216;1 &#8216; when ( c = &#8221; 1001 &#8221; )
-e l s e &#8216; 0 &#8216; ;
+<p>end if ;
+end if ;
+end process ;
+c out &lt;= &#8216;1&#8217; when (c = &#8220;1001&#8221;)
+else &#8216;0&#8217; ;
 cnt &lt;= c ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>c in は下の桁からの桁上げのリクエストを受け付けるポート、c out は上の桁への桁上げのリクエストを出力するポート。
 e in はH レベルが入るとカウントを行うポート</p>
 <p>ledconv.vhd
-l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y l edconv i s
-por t (
-cnt : in s t d l o g i c v e c t o r (3 downto 0) ;
-s l edxa : out s t d l o g i c ;
-s l edxb : out s t d l o g i c ;
-s l edx c : out s t d l o g i c ;
-s l edxd : out s t d l o g i c ;
-s l edx e : out s t d l o g i c ;
-s l e d x f : out s t d l o g i c ;
-s l edxg : out s t d l o g i c
+library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity l edconv i s
+port (
+cnt : in std_logic_vector (3 downto 0) ;
+s l edxa : out std_logic ;
+s l edxb : out std_logic ;
+s l edx c : out std_logic ;
+s l edxd : out std_logic ;
+s l edx e : out std_logic ;
+s l e d x f : out std_logic ;
+s l edxg : out std_logic
 ) ;
 end ledconv ;
-a r c h i t e c t u r e beha v i o r a l o f ledconv i s
-s i g n a l s l e d : s t d l o g i c v e c t o r (6 downto 0) ;
+architecture rtl o f ledconv i s
+signal s l e d : std_logic_vector (6 downto 0) ;
 begin
-s l e d &lt;= &#8221; 0010000 &#8221; when ( cnt = &#8221; 1001 &#8221; )
-e l s e &#8221; 0000000 &#8221; when ( cnt = &#8221; 1000 &#8221; )
-e l s e &#8221; 1111000 &#8221; when ( cnt = &#8221; 0111 &#8221; )
-e l s e &#8221; 0000010 &#8221; when ( cnt = &#8221; 0110 &#8221; )
-e l s e &#8221; 0010010 &#8221; when ( cnt = &#8221; 0101 &#8221; )
-e l s e &#8221; 0011001 &#8221; when ( cnt = &#8221; 0100 &#8221; )
-e l s e &#8221; 0110000 &#8221; when ( cnt = &#8221; 0011 &#8221; )
-e l s e &#8221; 0100100 &#8221; when ( cnt = &#8221; 0010 &#8221; )
-e l s e &#8221; 1111001 &#8221; when ( cnt = &#8221; 0001 &#8221; )
-e l s e &#8221; 1000000 &#8221; when ( cnt = &#8221; 0000 &#8221; )
-e l s e &#8221; 0000110 &#8221; ;
-s l edxa &lt;= s l e d ( 0 ) ;
-s l edxb &lt;= s l e d ( 1 ) ;
-s l edx c &lt;= s l e d ( 2 ) ;
-s l edxd &lt;= s l e d ( 3 ) ;
-s l edx e &lt;= s l e d ( 4 ) ;
-s l e d x f &lt;= s l e d ( 5 ) ;
-s l edxg &lt;= s l e d ( 6 ) ;
-end beha v i o r a l ;</p>
+s l e d &lt;= &#8220;0010000&#8221; when (cnt = &#8220;1001&#8221;)
+else &#8220;0000000&#8221; when (cnt = &#8220;1000&#8221;)
+else &#8220;1111000&#8221; when (cnt = &#8220;0111&#8221;)
+else &#8220;0000010&#8221; when (cnt = &#8220;0110&#8221;)
+else &#8220;0010010&#8221; when (cnt = &#8220;0101&#8221;)
+else &#8220;0011001&#8221; when (cnt = &#8220;0100&#8221;)
+else &#8220;0110000&#8221; when (cnt = &#8220;0011&#8221;)
+else &#8220;0100100&#8221; when (cnt = &#8220;0010&#8221;)
+else &#8220;1111001&#8221; when (cnt = &#8220;0001&#8221;)
+else &#8220;1000000&#8221; when (cnt = &#8220;0000&#8221;)
+else &#8220;0000110&#8221; ;
+s l edxa &lt;= s l e d (0) ;
+s l edxb &lt;= s l e d (1) ;
+s l edx c &lt;= s l e d (2) ;
+s l edxd &lt;= s l e d (3) ;
+s l edx e &lt;= s l e d (4) ;
+s l e d x f &lt;= s l e d (5) ;
+s l edxg &lt;= s l e d (6) ;
+end rtl ;</p>
 <p>プロジェクト名vhdl11b</p>
 <p>vhdl11b.vhd</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl11b i s
-por t (
-gc lk0 : in s t d l o g i c ;
-sw1 : in s t d l o g i c ;
-s l ed1 a : out s t d l o g i c ;
-s l ed1b : out s t d l o g i c ;
-s l e d 1 c : out s t d l o g i c ;
-s l ed1d : out s t d l o g i c ;
-s l e d 1 e : out s t d l o g i c ;
-s l e d 1 f : out s t d l o g i c ;
-s l ed1 g : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl11b i s
+port (
+gclk0 : in std_logic ;
+sw1 : in std_logic ;
+s l ed1 a : out std_logic ;
+s l ed1b : out std_logic ;
+s l e d 1 c : out std_logic ;
+s l ed1d : out std_logic ;
+s l e d 1 e : out std_logic ;
+s l e d 1 f : out std_logic ;
+s l ed1 g : out std_logic
 ) ;
 end vhdl11b ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl11b i s
+architecture rtl o f vhdl11b i s
 component count e r10
-por t (
-gc lk0 : in s t d l o g i c ;
-sw1 : in s t d l o g i c ;</p>
-<p>e i n : in s t d l o g i c ;
-c i n : in s t d l o g i c ;</p>
-<p>c out : out s t d l o g i c ;</p>
-<p>cnt : out s t d l o g i c v e c t o r (3 downto 0)
+port (
+gclk0 : in std_logic ;
+sw1 : in std_logic ;</p>
+<p>e i n : in std_logic ;
+c i n : in std_logic ;</p>
+<p>c out : out std_logic ;</p>
+<p>cnt : out std_logic_vector (3 downto 0)
 ) ;
 end component ;
 component ledconv
-por t (
-cnt : in s t d l o g i c v e c t o r (3 downto 0) ;
-s l edxa : out s t d l o g i c ;
-s l edxb : out s t d l o g i c ;
-s l edx c : out s t d l o g i c ;
-s l edxd : out s t d l o g i c ;
-s l edx e : out s t d l o g i c ;
-s l e d x f : out s t d l o g i c ;
-s l edxg : out s t d l o g i c
+port (
+cnt : in std_logic_vector (3 downto 0) ;
+s l edxa : out std_logic ;
+s l edxb : out std_logic ;
+s l edx c : out std_logic ;
+s l edxd : out std_logic ;
+s l edx e : out std_logic ;
+s l e d x f : out std_logic ;
+s l edxg : out std_logic
 ) ;
 end component ;
-s i g n a l d : s t d l o g i c v e c t o r (24 downto 0) ;
-s i g n a l r : s t d l o g i c ;
-s i g n a l c i n 1 : s t d l o g i c ;
-s i g n a l c out 1 : s t d l o g i c ;
-s i g n a l cnt1 : s t d l o g i c v e c t o r (3 downto 0) ;
+signal d : std_logic_vector (24 downto 0) ;
+signal r : std_logic ;
+signal c i n 1 : std_logic ;
+signal c out 1 : std_logic ;
+signal cnt1 : std_logic_vector (3 downto 0) ;
 begin
-di v pr o c : pr o c e s s ( g c lk0 )
+di v pr o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
-i f (d = &#8221; 1111010000100011111111111 &#8221; ) then
-d &lt;= &#8221; 0000000000000000000000000 &#8221; ;
-r &lt;= &#8216; 1 &#8216; ;
-e l s e
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+if (d = &#8220;1111010000100011111111111&#8221;) then
+d &lt;= &#8220;0000000000000000000000000&#8221; ;
+r &lt;= &#8216;1&#8217; ;
+else
 d &lt;= d + 1 ;
-r &lt;= &#8216; 0 &#8216; ;
-end i f ;
-end i f ;
-end pr o c e s s ;
-c i n 1 &lt;= &#8216; 1 &#8216; ;
+r &lt;= &#8216;0&#8217; ;
+end if ;
+end if ;
+end process ;
+c i n 1 &lt;= &#8216;1&#8217; ;
 i c o u n t e r 1 : count e r10
-por t map (
-gc lk0 =&gt; gclk0 ,
+port map (
+gclk0 =&gt; gclk0 ,
 sw1 =&gt; sw1 ,
 e i n =&gt; r ,
 c i n =&gt; c in 1 ,
@@ -1437,7 +1548,7 @@ c out =&gt; c out 1 ,
 cnt =&gt; cnt1
 ) ;
 i c o n v 1 : ledconv
-por t map (
+port map (
 cnt =&gt; cnt1 ,
 s l edxa =&gt; s l ed1a ,
 s l edxb =&gt; s led1b ,
@@ -1447,7 +1558,7 @@ s l edx e =&gt; s l ed1e ,
 s l e d x f =&gt; s l e d 1 f ,
 s l edxg =&gt; s l ed1 g
 ) ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>この状態で、ソースコードの関係は以下のようになります。
 counter 10 を呼び出しているときのキーワード&#8221;i counter 1&#8221; やledconv に対する&#8221;i conv 1&#8221; がインスタンス名となります。固有のインスタンス名をつけることで、同じ回路ブロックを複数回呼び出すことができます。
 ポートの接続はこのコードのように、左辺に呼び出される回路のポート名、=&gt; をはさんで右辺に呼び出し側のport 名またはsignal 名を書き、カンマで区切ります。カンマは区切りなので最後の接続の後には書きません。</p>
@@ -1468,26 +1579,29 @@ counter 10 を呼び出しているときのキーワード&#8221;i counter 1&#8
 ソースコード上で、各「状態」を数字で表しながらコーディングすることもできますが、各「状態」に名前をつけて管理しやすくすることができます。
 （ C 言語のenum と同じような働きです）
 使い方はたとえば以下のようになります。</p>
-<p>type RAMEN i s (MAKE READY CUP, BOILWATER, POURWATER, WAIT MINUTES,
-READY TO EAT) ;
-s i g n a l ramen s tat : RAMEN;
-begin
-ramen s tat &lt;= MAKEREADY;</p>
-<p>１行目ではRAMEN という型を新しく定義しています。この型のとりうる値は&#8221;MAKE READY CUP&#8221;の５種類です。
-２行目では、RAMEN の型のsignal 、ramen stat を宣言します。
-ramen stat にはMAKE READY CUP など、定義した名前を代入したり、if 文で比較したりすることができます。ただし勝手に作った型ですので、そのままではport から出力しても使えませんし、例えばLED の点灯パターンに対しては全く対応がとれないため使えません。あくまで内部で使うのが基本です。
-このようにしなくても、自分でこれらの状態を管理すれば、たとえばinteger のsignalででも管理できます。ただしわかりやすい名前をつけることで、ソースコードが理解しやすくなります。</p>
+<div class="highlight-vhdl"><div class="highlight"><pre><span class="k">type</span> <span class="n">RAMEN</span> <span class="k">is</span> <span class="p">(</span><span class="n">MAKE_READY_CUP</span><span class="p">,</span> <span class="n">BOILWATER</span><span class="p">,</span> <span class="n">POURWATER</span><span class="p">,</span> <span class="n">WAIT_MINUTES</span><span class="p">,</span> <span class="n">READY_TO_EAT</span><span class="p">);</span>
+<span class="k">signal</span> <span class="n">ramen_stat</span> <span class="o">:</span> <span class="n">RAMEN</span><span class="p">;</span>
+<span class="k">begin</span>
+  <span class="n">ramen_stat</span> <span class="o">&lt;=</span> <span class="n">MAKEREADY</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>１行目では RAMEN という型を新しく定義しています。この型のとりうる値は&#8221;MAKE_READY_CUP&#8221;以降の５種類です。
+２行目では、RAMEN の型の signal 、ramen_stat を宣言します。
+ramen_stat には MAKE_READY_CUP など、定義した名前を代入したり、if 文で比較したりすることができます。ただし勝手に作った型ですので、そのままでは port から出力しても使えませんし、例えば LED の点灯パターンに対しては全く対応がとれないため使えません。あくまで内部で使うのが基本です。
+このようにしなくても、自分でこれらの状態を管理すれば、たとえば integer の signal ででも管理できます。ただしわかりやすい名前をつけることで、ソースコードが理解しやすくなります。</p>
 </div>
 <div class="section" id="id23">
 <h3>5.15 条件分岐 case ～ when ～<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>注記
 case 文はprocess 文の中でのみ使用できます。
 状態遷移専用ではありませんが、case 文はよく組み合わされて使われます。基本的な形は以下の通りです。</p>
-<p>cas e (CONDITION SIGNAL) i s
-when (VALUE A) =&gt; ~ EXPRESSION A ~
-when (VALUE B) =&gt; ~ EXPRESSION B ~
-when o the r s =&gt; ~ EXPRESSION OTHER ~
-end cas e ;</p>
+<div class="highlight-vhdl"><div class="highlight"><pre>case (CONDITION_SIGNAL) is
+  when (VALUE_A) =&gt; ～ EXPRESSION A ～
+  when (VALUE_B) =&gt; ～ EXPRESSION B ～
+  when others =&gt; ～ EXPRESSION OTHER ～
+end case ;
+</pre></div>
+</div>
 <p>ある一つのsignal の値毎に処理を分岐させることができます。処理は、次のwhen まで何行でも書くことができます。</p>
 <div class="section" id="id24">
 <h4>5.15.1 演習<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -1496,122 +1610,122 @@ end cas e ;</p>
 • LED2 が点灯している場合、sw1 を操作することで、LED2 が消灯し、LED1 が点灯する。sw2 を操作した場合は、LED2 が消灯し、LED3 が点灯する。
 • LED3 が点灯している場合、sw1 を操作することで、LED3 が消灯し、LED2 が点灯する。</p>
 <p>sw lter.vhd</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y swf i l t e r i s
-por t (
-gc lk0 : in s t d l o g i c ;
-sw : in s t d l o g i c ;
-sw out : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity swf i l t e r i s
+port (
+gclk0 : in std_logic ;
+sw : in std_logic ;
+sw out : out std_logic
 ) ;
 end swf i l t e r ;
-a r c h i t e c t u r e beha v i o r a l o f swf i l t e r i s
-s i g n a l c : s t d l o g i c v e c t o r (14 downto 0) ;
-s i g n a l r : s t d l o g i c ;
-s i g n a l d1 : s t d l o g i c ;
-s i g n a l d2 : s t d l o g i c ;
-s i g n a l s : s t d l o g i c ;
+architecture rtl o f swf i l t e r i s
+signal c : std_logic_vector (14 downto 0) ;
+signal r : std_logic ;
+signal d1 : std_logic ;
+signal d2 : std_logic ;
+signal s : std_logic ;
 begin
-sum proc : pr o c e s s ( g c lk0 )
+sum proc : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
-i f ( sw = &#8216; 0 &#8216; ) then
-c &lt;= &#8221; 000000000000000 &#8221; ;
-e l s i f ( ( c /= &#8221; 111111111111111 &#8221; ) and ( sw = &#8216; 1 &#8216; ) ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+if (sw = &#8216;0&#8217;) then
+c &lt;= &#8220;000000000000000&#8221; ;
+elsif ((c /= &#8220;111111111111111&#8221;) and (sw = &#8216;1&#8217;)) then
 c &lt;= c + 1 ;
-end i f ;
-i f ( c = &#8221; 111111111111111 &#8221; ) then
-r &lt;= &#8216; 1 &#8216; ;
-e l s e
-r &lt;= &#8216; 0 &#8216; ;
-end i f ;
-end i f ;
-end pr o c e s s ;
-d i f f p r o c : pr o c e s s ( g c lk0 )
+end if ;
+if (c = &#8220;111111111111111&#8221;) then
+r &lt;= &#8216;1&#8217; ;
+else
+r &lt;= &#8216;0&#8217; ;
+end if ;
+end if ;
+end process ;
+d i f f p r o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
 d1 &lt;= r ;
 d2 &lt;= d1 ;
-s &lt;= d1 and ( not d2 ) ;
-end i f ;
-end pr o c e s s ;
+s &lt;= d1 and (not d2) ;
+end if ;
+end process ;
 sw out &lt;= s ;
-end beha v i o r a l ;</p>
+end rtl ;</p>
 <p>プロジェクト名vhdl12</p>
 <p>vhdl12.vhd</p>
-<p>l i b r a r y i e e e ;
-use i e e e . s t d l o g i c 1 1 6 4 . a l l ;
-use i e e e . s t d l o g i c a r i t h . a l l ;
-use i e e e . s t d l o g i c u n s i g n e d . a l l ;
-e n t i t y vhdl12 i s
-por t (
-gc lk0 : in s t d l o g i c ;
-sw1 : in s t d l o g i c ;
-sw2 : in s t d l o g i c ;
-l ed1 : out s t d l o g i c ;
-l ed2 : out s t d l o g i c ;
-l ed3 : out s t d l o g i c
+<p>library ieee ;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+entity vhdl12 i s
+port (
+gclk0 : in std_logic ;
+sw1 : in std_logic ;
+sw2 : in std_logic ;
+l ed1 : out std_logic ;
+l ed2 : out std_logic ;
+l ed3 : out std_logic
 ) ;
 end vhdl12 ;
-a r c h i t e c t u r e beha v i o r a l o f vhdl12 i s
+architecture rtl o f vhdl12 i s
 component swf i l t e r
-por t (
-gc lk0 : in s t d l o g i c ;
-sw : in s t d l o g i c ;
-sw out : out s t d l o g i c
+port (
+gclk0 : in std_logic ;
+sw : in std_logic ;
+sw out : out std_logic
 ) ;
 end component ;
-s i g n a l sw1d : s t d l o g i c ;
-s i g n a l sw2d : s t d l o g i c ;
+signal sw1d : std_logic ;
+signal sw2d : std_logic ;
 type LED STAT i s (P LED1 , P LED2 , P LED3) ;
-s i g n a l l s t a t : LED STAT;
-s i g n a l l ed : s t d l o g i c v e c t o r (3 downto 1) ;
+signal l s t a t : LED STAT;
+signal l ed : std_logic_vector (3 downto 1) ;
 begin
 sw1 f i l t e r : swf i l t e r
-por t map (
-gc lk0 =&gt; gclk0 ,
+port map (
+gclk0 =&gt; gclk0 ,
 sw =&gt; sw1 ,
 sw out =&gt; sw1d
 ) ;
 sw2 f i l t e r : swf i l t e r
-por t map (
-gc lk0 =&gt; gclk0 ,
+port map (
+gclk0 =&gt; gclk0 ,
 sw =&gt; sw2 ,
 sw out =&gt; sw2d
 ) ;
-s t a t p r o c : pr o c e s s ( g c lk0 )
+s t a t p r o c : process (gclk0)
 begin
-i f ( gclk0 &#8216; event and g c lk0 = &#8216; 1 &#8216; ) then
-cas e l s t a t i s
+if (gclk0&#8217;event and gclk0 = &#8216;1&#8217;) then
+case l s t a t i s
 when P LED1 =&gt;
-i f ( sw2d = &#8216; 1 &#8216; ) then
+if (sw2d = &#8216;1&#8217;) then
 l s t a t &lt;= P LED2 ;
-end i f ;
-l ed &lt;= &#8221; 001 &#8221; ;
+end if ;
+l ed &lt;= &#8220;001&#8221; ;
 when P LED2 =&gt;
-i f ( sw1d = &#8216; 1 &#8216; ) then
+if (sw1d = &#8216;1&#8217;) then
 l s t a t &lt;= P LED1 ;
-e l s i f ( sw2d = &#8216; 1 &#8216; ) then
+elsif (sw2d = &#8216;1&#8217;) then
 l s t a t &lt;= P LED3 ;
-end i f ;
-l ed &lt;= &#8221; 010 &#8221; ;
+end if ;
+l ed &lt;= &#8220;010&#8221; ;
 when P LED3 =&gt;
-i f ( sw1d = &#8216; 1 &#8216; ) then
+if (sw1d = &#8216;1&#8217;) then
 l s t a t &lt;= P LED2 ;
-end i f ;
-l ed &lt;= &#8221; 100 &#8221; ;
+end if ;
+l ed &lt;= &#8220;100&#8221; ;
 when o the r s =&gt;
 l s t a t &lt;= P LED1 ;
-l ed &lt;= &#8221; 111 &#8221; ;
-end cas e ;
-end i f ;
-end pr o c e s s ;
-l ed1 &lt;= not l ed ( 1 ) ;
-l ed2 &lt;= not l ed ( 2 ) ;
-l ed3 &lt;= not l ed ( 3 ) ;
-end beha v i o r a l ;</p>
+l ed &lt;= &#8220;111&#8221; ;
+end case ;
+end if ;
+end process ;
+l ed1 &lt;= not l ed (1) ;
+l ed2 &lt;= not l ed (2) ;
+l ed3 &lt;= not l ed (3) ;
+end rtl ;</p>
 <p>case 文とは関係ありませんが、sw lter はsw にスイッチからの信号を接続し、sw outにチャタリング除去後の信号を出力する回路ブロックです。</p>
 </div>
 </div>
@@ -1724,7 +1838,7 @@ end beha v i o r a l ;</p>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#id4">4.2 信号の種類</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#std-logic">4.2.1 std_logic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#std-logic-vector">4.2.2 std_logic?vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#std-logic-vector">4.2.2 std_logic_vector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#integer">4.2.3 integer</a></li>
 </ul>
 </li>
