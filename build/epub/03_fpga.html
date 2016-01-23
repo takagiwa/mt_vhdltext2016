@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FPGA について</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="04_vhdl.html" title="VHDL"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="02_stopwatch.html" title="ストップウォッチについて"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">vhdl2016 2016.01.10 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fpga">
+<h1>FPGA について</h1>
+<p>デジタル回路の最小単位は、AND、OR、NOT 等の論理素子で、さらにこれらを組み合わせたXOR とフリップフロップが多用されます。これらの単機能デバイス（たとえば16 ピンのIC など）は多く販売されていました。</p>
+<p>プロセッサやメモリなどは大規模なデジタル回路で、上記のような機能を組み合わせてIC 、LSI という形で設計されます。</p>
+<p>1990 年代中盤のプロセッサやメモリは単体では機能が少なく、基板上で、上記のような単機能デバイスを組み合わせたサポート回路が必要となっていました。</p>
+<p>これらのサポート回路をまた新しいIC 、LSI で設計することも可能でしたが、対象となるCPU や、基板が対象としている機能などで必要となる回路が異なるため、現実的ではありませんでした。</p>
+<p>ちなみに小規模なIC 、LSI でも実際のデバイスにするまでに数千万から億単位の費用がかかるそうです。</p>
+<p>そこで、大量の論理素子と、それらをつなぐ大量の配線＋スイッチをあらかじめIC 内に作り込んでおき、素子、スイッチ毎にON、OFF を設定することで、まるで専用のICのように使おうという考えが生まれ、そのようなデバイスが作られました。</p>
+<p>これがFPGA の始まりとなります。</p>
+<p>IC 、LSI の技術の進歩とともに規模も大きくなり、動作速度も高くなり、現在ではただのサポート回路にとどまらず、信号処理の分野でも使われています。</p>
+<p>性能や価格では、億単位の費用をかけたLSI にはかなわないため、そういった対応ができない分野で多く使われています。</p>
+<p>例：</p>
+<dl class="docutils">
+<dt>製品の初期開発</dt>
+<dd>たとえば第３世代携帯電話の端末、基地局の開発は、世界標準の規格がまだ確定していない時期から始まっているため、後から変更が必要な可能性がとても高い状態でした。そのため、あとから内容を変更できるよう基板はFPGA を搭載して製造しておき、仕様変更があってもすぐ対応できるようにします（LSI では製造にも時間がかかります）。</dd>
+<dt>特殊な信号処理装置</dt>
+<dd>たとえば金融取引向けには一般のパソコンにも組み込める、単にFPGA が載っているだけの基板が使われます。内容は会社それぞれが独自のノウハウで設計するため、全てのユーザ共通とはできないので、空っぽのままで販売されます。</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>実際にこの授業で使用するデバイスは「PLD」と呼ばれます。PLD は Programmable Logic Device の略です。プログラム可能な論理デバイス、となります。</p>
+<p>対してFPGA はField Programmable Gate Array の略です。現場（Field）でプログラム可能なゲート（論理）の集合、となります。</p>
+<p>できることはほぼ同じですが、以下のような特徴で分けています。</p>
+<p>CPLD</p>
+<ul class="simple">
+<li>フラッシュメモリを内蔵し、電源を入れるとすぐ使える。</li>
+<li>回路規模は小さめ。</li>
+<li>基本的に論理回路しか入ってない。</li>
+<li>動作速度が比較的高い。</li>
+<li>構造上、XOR が少し苦手。</li>
+</ul>
+<p>FPGA</p>
+<ul class="simple">
+<li>動作のプログラムは揮発性のメモリに格納されるので、電源を切ると内容が失われる。そのため別途フラッシュメモリが必要。</li>
+<li>回路規模はかなり大きい。</li>
+<li>高機能（乗算用ハードウェアが入っていたり、メモリが入っていたりする）。</li>
+<li>動作速度は今ではだいぶ高くなってきた。</li>
+</ul>
+<p>それぞれのデバイスの構成要素は以下の図のようになっています。いずれもD フリップフロップと組み合わせ回路がセットになっており、その入力をプログラムするような形です。このセットがデバイスの中に多数組み込まれ、相互に接続できるよう配線とスイッチも同様に多数用意されます。</p>
+<p>CPLD とFPGA の間の大きな違いは組み合わせ回路の構成です。CPLD は大量の ANDと多入力 OR を組み合わせていますが（実際には NOT も入ります）、FPGA は AND 、OR に縛られない LUT (LookUp Table) を使用します。たとえば４入力の AND 、４入力の OR に限らず、&#8221;4&#8221; 等の任意の数値と一致したときに H を出力する、というようなことも簡単にできるよう、より柔軟な構造になっています。</p>
+<p class="last">いずれの場合でもD フリップフロップが既に組み込まれていますので、AND を組み合わせたようなフリップフロップを改めて記述する必要はなく、むしろ期待通りに動作しない可能性があります。</p>
+</div>
+<div class="section" id="hdl">
+<h2>3.1 HDL</h2>
+<p>ディジタル回路を組み込んだIC やLSI の開発では、初期にはAND 、OR 、NOT 、フリップフロップをCAD 上で回路図のように配置して接続していました。</p>
+<p>こういったCAD は、IC 、LSI メーカー毎に異なるため、たとえば完成したデータを違うLSI メーカーで製造しなければいけなくなったとき、互換性が無いため入力＆確認し直しが必要になっていました。</p>
+<p>こういった状況を避けるために、IC 、LSI の開発も、ソフトウェアのようにテキストで行おうという動きがでてきました。このジャンルの言語はHDL （Hardware Description Language）と呼ばれます。</p>
+<p>ソフトウェアと同様、HDL も様々なものが開発されましたが、現在の主流はVerilogHDLとVHDL です。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">HDL は一般にソフトウェアとは異なる考え方が必要になります。それだけ、ソフトウェアのプログラマに比べ人口が少ないです。
+現在ソフトウェアの開発環境は無料で入手できるようになり、早ければ小学生から始める人もいます。
+特に研究の分野ではFPGA に興味を持つ方は多いのですが、開発環境やサンプルボードが高価なこともあり、独学で覚えられる環境は多くありませんでした。
+HDL を多少でも理解できると、その分対応できる仕事が広がります。ただ、通常のC 言語をベースにもっとたくさんの人がFPGA 開発できるようにする動きも以前からあり、少しずつ成果が出始めてきています。</p>
+</div>
+</div>
+<div class="section" id="veriloghdl-vhdl">
+<h2>3.2 VerilogHDL とVHDL</h2>
+<p>各言語の特徴を以下に示します（筆者の独断と偏見を含む）</p>
+<p>VerilogHDL</p>
+<ul class="simple">
+<li>民間主導- ツールメーカーが開発した。</li>
+<li>比較的便利な記述ができるようになっている。</li>
+<li>文法上記述ミスが許容される傾向がある＝ デバッグ時に大変なことが多い。</li>
+<li>日本でのシェアは、こちらがかすかに多いかもしれない。</li>
+<li>C 言語に近い、と評されることがあるものの、上記のような動きがあることから、むしろBASIC の方が近いと感じる。</li>
+<li>無料のシミュレータがあるため、特に趣味の範囲での人気はVHDL より高い模様。</li>
+</ul>
+<p>VHDL</p>
+<ul class="simple">
+<li>米国国防省主導- ソフトウェアのプログラミング言語をベースに策定</li>
+<li>融通が利かず、あまり高機能でない。コード量は多くなる傾向かもしれない。</li>
+<li>海外でのシェアは、こちらがかすかに多いかもしれない。</li>
+<li>BASIC ににたキーワードもあるものの、文法エラーの検出の強さはC 言語に近い。</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Masayuki Takagiwa.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 で生成しました。
+    </div>
+  </body>
+</html>
