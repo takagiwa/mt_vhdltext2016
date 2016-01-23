@@ -7,54 +7,54 @@
 \contentsline {section}{\numberline {3.2}3.2 VerilogHDL とVHDL}{9}{section.3.2}
 \contentsline {chapter}{\numberline {4}VHDL}{11}{chapter.4}
 \contentsline {section}{\numberline {4.1}4.1 基本形}{11}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}4.1.1 解説}{12}{subsection.4.1.1}
-\contentsline {subsubsection}{4.1.1.1 entity とその周辺}{12}{subsubsection*.3}
-\contentsline {subsection}{\numberline {4.1.2}4.1.2 ファイルとの関係}{12}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}4.2 信号の種類}{12}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}4.2.1 std\_logic}{12}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}4.2.2 std\_logic?vector}{13}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}4.2.3 integer}{13}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}4.3 ポート宣言}{13}{section.4.3}
-\contentsline {section}{\numberline {4.4}4.4 シグナル宣言}{14}{section.4.4}
-\contentsline {section}{\numberline {4.5}4.5 値の代入}{14}{section.4.5}
-\contentsline {section}{\numberline {4.6}4.6 もう一つの信号 variable と代入}{15}{section.4.6}
+\contentsline {subsection}{\numberline {4.1.1}4.1.1 解説}{13}{subsection.4.1.1}
+\contentsline {subsubsection}{4.1.1.1 entity とその周辺}{13}{subsubsection*.3}
+\contentsline {subsection}{\numberline {4.1.2}4.1.2 ファイルとの関係}{13}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}4.2 信号の種類}{13}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}4.2.1 std\_logic}{13}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}4.2.2 std\_logic\_vector}{13}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}4.2.3 integer}{14}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}4.3 ポート宣言}{14}{section.4.3}
+\contentsline {section}{\numberline {4.4}4.4 シグナル宣言}{15}{section.4.4}
+\contentsline {section}{\numberline {4.5}4.5 値の代入}{16}{section.4.5}
+\contentsline {section}{\numberline {4.6}4.6 もう一つの信号 variable と代入}{16}{section.4.6}
 \contentsline {chapter}{\numberline {5}第5章 演習}{17}{chapter.5}
 \contentsline {section}{\numberline {5.1}5.1 注意事項}{17}{section.5.1}
 \contentsline {section}{\numberline {5.2}5.2 論理演算}{17}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}5.2.1 演習}{17}{subsection.5.2.1}
 \contentsline {section}{\numberline {5.3}5.3 数値演算}{18}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}5.3.1 演習}{18}{subsection.5.3.1}
-\contentsline {section}{\numberline {5.4}5.4 条件分岐 when ～ else ～}{19}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}5.4.1 演習}{19}{subsection.5.4.1}
-\contentsline {section}{\numberline {5.5}5.5 条件分岐 with ～ select ～ when ～}{19}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}5.5.1 演習}{19}{subsection.5.5.1}
-\contentsline {section}{\numberline {5.6}5.6 process 文}{20}{section.5.6}
-\contentsline {section}{\numberline {5.7}5.7 フリップフロップの基本と if 文}{20}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}5.7.1 同期、非同期}{20}{subsection.5.7.1}
-\contentsline {subsection}{\numberline {5.7.2}5.7.2 if 文}{21}{subsection.5.7.2}
-\contentsline {subsection}{\numberline {5.7.3}5.7.3 マルチソース}{22}{subsection.5.7.3}
-\contentsline {subsection}{\numberline {5.7.4}5.7.4 process 文、if 文によるフリップフロップの記述のお約束}{22}{subsection.5.7.4}
-\contentsline {subsection}{\numberline {5.7.5}5.7.5 演習}{22}{subsection.5.7.5}
-\contentsline {subsection}{\numberline {5.7.6}5.7.6 課題}{23}{subsection.5.7.6}
-\contentsline {section}{\numberline {5.8}5.8 カウンタ}{24}{section.5.8}
-\contentsline {section}{\numberline {5.9}5.9 分周回路と T フリップフロップ}{24}{section.5.9}
-\contentsline {subsection}{\numberline {5.9.1}5.9.1 分周回路}{24}{subsection.5.9.1}
-\contentsline {subsection}{\numberline {5.9.2}5.9.2 課題}{25}{subsection.5.9.2}
-\contentsline {section}{\numberline {5.10}5.10 積分回路とチャタリング除去}{25}{section.5.10}
-\contentsline {section}{\numberline {5.11}5.11 微分回路}{26}{section.5.11}
-\contentsline {subsection}{\numberline {5.11.1}5.11.1 演習}{26}{subsection.5.11.1}
-\contentsline {section}{\numberline {5.12}5.12 １０進カウンタ}{26}{section.5.12}
-\contentsline {subsection}{\numberline {5.12.1}5.12.1 課題}{26}{subsection.5.12.1}
-\contentsline {section}{\numberline {5.13}5.13 階層設計}{27}{section.5.13}
-\contentsline {section}{\numberline {5.14}5.14 状態遷移と、条件分岐 case ～ when ～}{29}{section.5.14}
-\contentsline {section}{\numberline {5.15}5.15 条件分岐 case ～ when ～}{29}{section.5.15}
-\contentsline {subsection}{\numberline {5.15.1}5.15.1 演習}{29}{subsection.5.15.1}
-\contentsline {section}{\numberline {5.16}5.16 ストップウォッチ}{30}{section.5.16}
-\contentsline {subsection}{\numberline {5.16.1}5.16.1 課題：最小限の構成}{30}{subsection.5.16.1}
-\contentsline {subsubsection}{5.16.1.1 ヒント}{30}{subsubsection*.4}
-\contentsline {subsection}{\numberline {5.16.2}5.16.2 課題：応用}{30}{subsection.5.16.2}
-\contentsline {subsubsection}{5.16.2.1 ヒント}{31}{subsubsection*.5}
-\contentsline {subsection}{\numberline {5.16.3}5.16.3 その他課題}{31}{subsection.5.16.3}
-\contentsline {chapter}{\numberline {6}第6章 付録}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}6.1 参考情報}{33}{section.6.1}
-\contentsline {chapter}{\numberline {7}Indices and tables}{35}{chapter.7}
+\contentsline {section}{\numberline {5.4}5.4 条件分岐 when ～ else ～}{21}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}5.4.1 演習}{21}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}5.5 条件分岐 with ～ select ～ when ～}{22}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}5.5.1 演習}{22}{subsection.5.5.1}
+\contentsline {section}{\numberline {5.6}5.6 process 文}{23}{section.5.6}
+\contentsline {section}{\numberline {5.7}5.7 フリップフロップの基本と if 文}{23}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}5.7.1 同期、非同期}{24}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}5.7.2 if 文}{25}{subsection.5.7.2}
+\contentsline {subsection}{\numberline {5.7.3}5.7.3 マルチソース}{27}{subsection.5.7.3}
+\contentsline {subsection}{\numberline {5.7.4}5.7.4 process 文、if 文によるフリップフロップの記述のお約束}{28}{subsection.5.7.4}
+\contentsline {subsection}{\numberline {5.7.5}5.7.5 演習}{29}{subsection.5.7.5}
+\contentsline {subsection}{\numberline {5.7.6}5.7.6 課題}{30}{subsection.5.7.6}
+\contentsline {section}{\numberline {5.8}5.8 カウンタ}{32}{section.5.8}
+\contentsline {section}{\numberline {5.9}5.9 分周回路と T フリップフロップ}{33}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}5.9.1 分周回路}{33}{subsection.5.9.1}
+\contentsline {subsection}{\numberline {5.9.2}5.9.2 課題}{34}{subsection.5.9.2}
+\contentsline {section}{\numberline {5.10}5.10 積分回路とチャタリング除去}{35}{section.5.10}
+\contentsline {section}{\numberline {5.11}5.11 微分回路}{37}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}5.11.1 演習}{37}{subsection.5.11.1}
+\contentsline {section}{\numberline {5.12}5.12 １０進カウンタ}{39}{section.5.12}
+\contentsline {subsection}{\numberline {5.12.1}5.12.1 課題}{39}{subsection.5.12.1}
+\contentsline {section}{\numberline {5.13}5.13 階層設計}{41}{section.5.13}
+\contentsline {section}{\numberline {5.14}5.14 状態遷移と、条件分岐 case ～ when ～}{46}{section.5.14}
+\contentsline {section}{\numberline {5.15}5.15 条件分岐 case ～ when ～}{46}{section.5.15}
+\contentsline {subsection}{\numberline {5.15.1}5.15.1 演習}{47}{subsection.5.15.1}
+\contentsline {section}{\numberline {5.16}5.16 ストップウォッチ}{49}{section.5.16}
+\contentsline {subsection}{\numberline {5.16.1}5.16.1 課題：最小限の構成}{49}{subsection.5.16.1}
+\contentsline {subsubsection}{5.16.1.1 ヒント}{50}{subsubsection*.4}
+\contentsline {subsection}{\numberline {5.16.2}5.16.2 課題：応用}{50}{subsection.5.16.2}
+\contentsline {subsubsection}{5.16.2.1 ヒント}{50}{subsubsection*.5}
+\contentsline {subsection}{\numberline {5.16.3}5.16.3 その他課題}{50}{subsection.5.16.3}
+\contentsline {chapter}{\numberline {6}第6章 付録}{53}{chapter.6}
+\contentsline {section}{\numberline {6.1}6.1 参考情報}{53}{section.6.1}
+\contentsline {chapter}{\numberline {7}Indices and tables}{55}{chapter.7}

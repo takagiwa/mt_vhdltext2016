@@ -25,7 +25,29 @@ entity 名はこの回路に対する自由な名前（たとえば機能から�
 
 これらは以下のようなイメージになります。
 
+.. only:: not latex
+
+ .. figure:: figure/figure02.png
+  :align: center
+
+.. only:: latex
+
+ .. figure:: figure/figure02.eps
+  :align: center
+
+
 ファイルにはいくつかの entity 、architecture を含めることができますが、この実習では一つのファイルに一つの entity 、architecture を保存し、ファイル名は entity 名に合わせて設定してください。
+
+.. only:: not latex
+
+ .. figure:: figure/figure03.png
+  :align: center
+
+.. only:: latex
+
+ .. figure:: figure/figure03.eps
+  :align: center
+
 
 4.1.1 解説
 ^^^^^^^^^^^^
@@ -113,6 +135,16 @@ std_logic を束ねたもので、任意のビット数を扱うことができ�
 
  図の上を MSB、下を LSB とした場合、downto と to の関係は次の図のようになります。
 
+ .. only:: not latex
+
+  .. figure:: figure/figure04.png
+   :align: center
+
+ .. only:: latex
+
+  .. figure:: figure/figure04.eps
+   :align: center
+
 4.2.3 integer
 ^^^^^^^^^^^^^^^
 
@@ -157,6 +189,16 @@ buffer
 それぞれのイメージを図に示します。読み書きは他の signal へ、または signal からの「代入」と読み替えてもよいでしょう。
 
 buffer と inout はこの授業では使用しません。
+
+.. only:: not latex
+
+ .. figure:: figure/figure05.png
+  :align: center
+
+.. only:: latex
+
+ .. figure:: figure/figure05.eps
+  :align: center
 
 4.4 シグナル宣言
 ------------------
